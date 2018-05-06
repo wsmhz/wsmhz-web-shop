@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.wsmhz:wsmhz-security-core:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz-security-core/1.0-SNAPSHOT/wsmhz-security-core-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz-security-core/1.0-SNAPSHOT/wsmhz-security-core-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz-security-core/1.0-SNAPSHOT/wsmhz-security-core-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
