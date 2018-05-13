@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf0b7455-d1a8-40b0-9bf9-76193c589e85" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_0_3.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/wsmhz-shop-back/target/classes/application.properties" afterPath="$PROJECT_DIR$/wsmhz-shop-back/target/classes/application.properties" />
+      <change beforePath="$PROJECT_DIR$/wsmhz-shop-back/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/wsmhz-shop-back/target/maven-archiver/pom.properties" />
+      <change beforePath="$PROJECT_DIR$/wsmhz-shop-back/wsmhz-shop-back.iml" afterPath="$PROJECT_DIR$/wsmhz-shop-back/wsmhz-shop-back.iml" />
+      <change beforePath="$PROJECT_DIR$/wsmhz-web-shop.iml" afterPath="$PROJECT_DIR$/wsmhz-web-shop.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,74 +35,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="RbacUserDetailsService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.class" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <marker date="1525874623420" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1525874623420" expanded="false" signature="154:1260" ph="..." />
-                <marker date="1525874623420" expanded="true" signature="1262:1305" ph="@{...}" />
-                <marker date="1525874623420" expanded="true" signature="1483:1490" ph="{}" />
-                <marker date="1525874623420" expanded="true" signature="1591:1841" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="2005:2261" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="2383:2492" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="2626:2739" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="2881:3078" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="3164:3359" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="3444:3651" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="3657:3701" ph="@{...}" />
-                <marker date="1525874623420" expanded="true" signature="3772:4062" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="4084:4552" ph="{...}" />
-                <marker date="1525874623420" expanded="true" signature="4165:4238" ph="{...}" />
-                <marker date="1525874623420" expanded="false" signature="4269:4284" ph=" { " />
-                <marker date="1525874623420" expanded="false" signature="4302:4312" ph=" }" />
-                <marker date="1525874623420" expanded="false" signature="4353:4368" ph=" { " />
-                <marker date="1525874623420" expanded="false" signature="4387:4397" ph=" }" />
-                <marker date="1525874623420" expanded="false" signature="4425:4440" ph=" { " />
-                <marker date="1525874623420" expanded="false" signature="4457:4467" ph=" }" />
-                <marker date="1525874623420" expanded="false" signature="4504:4519" ph=" { " />
-                <marker date="1525874623420" expanded="false" signature="4536:4546" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,13 +68,13 @@
         <option value="$PROJECT_DIR$/wsmhz-shop-back/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/security/web/shop/back/authentication/RbacUserDetailsService.java" />
-        <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/Main.java" />
         <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/i18n.messages/messages_zh_CN.properties" />
         <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java" />
         <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/SqlMapConfig" />
-        <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/Main.java" />
       </list>
     </option>
   </component>
@@ -183,8 +121,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,7 +177,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -258,7 +196,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class&#10;Admin&#9;PSI&#9;JAVA://com.wsmhz.authorize.controller.AdminController&#10;wsmhz&#9;PSI&#9;JAVA://com.wsmhz.security.browser.authentication.WsmhzAuthenctiationFailureHandler" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class&#10;Admin&#9;FILE&#9;jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/domain/Admin.class&#10;wsmhz&#9;PSI&#9;JAVA://com.wsmhz.security.browser.authentication.WsmhzAuthenctiationFailureHandler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -420,16 +358,18 @@
       <workItem from="1525582040615" duration="18559000" />
       <workItem from="1525697394966" duration="637000" />
       <workItem from="1525786581802" duration="1447000" />
-      <workItem from="1525833704367" duration="10969000" />
+      <workItem from="1525833704367" duration="10989000" />
+      <workItem from="1526100503354" duration="9000" />
+      <workItem from="1526104012491" duration="2467000" />
+      <workItem from="1526179466275" duration="6738000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33118000" />
+    <option name="totallyTimeSpent" value="42352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -450,8 +390,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4805492" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36270022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27306867" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36270022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28433478" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -505,7 +445,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -517,10 +457,75 @@
     <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1526215657683" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1526215657683" expanded="false" signature="154:158" ph="..." />
+            <marker date="1526215657683" expanded="true" signature="2354:2477" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="2599:2708" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="2842:2955" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3097:3294" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3380:3575" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3660:3867" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3873:3917" ph="@{...}" />
+            <marker date="1526215657683" expanded="true" signature="3988:4278" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <marker date="1526215657683" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1526215657683" expanded="false" signature="154:158" ph="..." />
+            <marker date="1526215657683" expanded="true" signature="2354:2477" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="2599:2708" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="2842:2955" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3097:3294" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3380:3575" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3660:3867" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3873:3917" ph="@{...}" />
+            <marker date="1526215657683" expanded="true" signature="3988:4278" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -536,9 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,9 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -628,23 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/domain/Admin.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/service/impl/AdminServiceImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -659,24 +641,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/SqlMapConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="78" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/SqlMapConfig.xml" />
     <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -689,33 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="48" column="12" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-          <folding>
-            <marker date="1525874618919" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1525874618919" expanded="false" signature="155:394" ph="..." />
-            <marker date="1525874618919" expanded="true" signature="540:547" ph="{}" />
-            <marker date="1525874618919" expanded="false" signature="589:600" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="642:648" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="680:691" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="722:728" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="762:773" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="810:816" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="853:864" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="898:904" ph=" }" />
-            <marker date="1525874618919" expanded="true" signature="982:1162" ph="{...}" />
-            <marker date="1525874618919" expanded="true" signature="1258:1522" ph="{...}" />
-            <marker date="1525874618919" expanded="true" signature="1607:1749" ph="{...}" />
-            <marker date="1525874618919" expanded="false" signature="1786:1797" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="1831:1837" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="1883:1894" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="1937:1943" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="1992:2003" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="2049:2055" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="2113:2124" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="2179:2185" ph=" }" />
-            <marker date="1525874618919" expanded="false" signature="2233:2244" ph=" { " />
-            <marker date="1525874618919" expanded="false" signature="2286:2292" ph=" }" />
-            <marker date="1525874618919" expanded="true" signature="2370:2550" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -723,42 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding>
-            <marker date="1525874618919" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1525874618919" expanded="false" signature="155:209" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <marker date="1525874623420" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1525874623420" expanded="false" signature="154:1260" ph="..." />
-            <marker date="1525874623420" expanded="true" signature="1262:1305" ph="@{...}" />
-            <marker date="1525874623420" expanded="true" signature="1483:1490" ph="{}" />
-            <marker date="1525874623420" expanded="true" signature="1591:1841" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="2005:2261" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="2383:2492" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="2626:2739" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="2881:3078" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="3164:3359" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="3444:3651" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="3657:3701" ph="@{...}" />
-            <marker date="1525874623420" expanded="true" signature="3772:4062" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="4084:4552" ph="{...}" />
-            <marker date="1525874623420" expanded="true" signature="4165:4238" ph="{...}" />
-            <marker date="1525874623420" expanded="false" signature="4269:4284" ph=" { " />
-            <marker date="1525874623420" expanded="false" signature="4302:4312" ph=" }" />
-            <marker date="1525874623420" expanded="false" signature="4353:4368" ph=" { " />
-            <marker date="1525874623420" expanded="false" signature="4387:4397" ph=" }" />
-            <marker date="1525874623420" expanded="false" signature="4425:4440" ph=" { " />
-            <marker date="1525874623420" expanded="false" signature="4457:4467" ph=" }" />
-            <marker date="1525874623420" expanded="false" signature="4504:4519" ph=" { " />
-            <marker date="1525874623420" expanded="false" signature="4536:4546" ph=" }" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -767,24 +669,72 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="108">
             <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/org/springframework/boot/spring-boot-autoconfigure/1.5.6.RELEASE/spring-boot-autoconfigure-1.5.6.RELEASE.jar!/org/springframework/boot/autoconfigure/web/ServerProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1197" column="20" lean-forward="false" selection-start-line="1197" selection-start-column="20" selection-end-line="1197" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="123">
+          <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsmhz-shop-back/src/main/java/com/wsmhz/web/shop/back/authentication/RbacUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/domain/Admin.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/apache-maven-3.5.3-bin/repo/com/wsmhz/wsmhz.sercurity.authorize/1.0-SNAPSHOT/wsmhz.sercurity.authorize-1.0-SNAPSHOT.jar!/com/wsmhz/authorize/controller/AdminController.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding>
+            <marker date="1526215657683" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1526215657683" expanded="false" signature="154:158" ph="..." />
+            <marker date="1526215657683" expanded="true" signature="2354:2477" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="2599:2708" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="2842:2955" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3097:3294" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3380:3575" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3660:3867" ph="{...}" />
+            <marker date="1526215657683" expanded="true" signature="3873:3917" ph="@{...}" />
+            <marker date="1526215657683" expanded="true" signature="3988:4278" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        <state relative-caret-position="162">
+          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
