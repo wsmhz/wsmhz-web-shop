@@ -2,6 +2,7 @@ package com.wsmhz.web.shop.back.authentication;
 
 import com.wsmhz.authorize.domain.Admin;
 import com.wsmhz.authorize.service.AdminService;
+import com.wsmhz.security.core.utils.MD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,6 @@ public class RbacUserDetailsService implements UserDetailsService ,SocialUserDet
 
         logger.info("RBAC登录用户名:" + username);
         Admin admin = adminService.selectByUsername(username);
-        admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         return admin;
 
     }

@@ -6,12 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wsmhz-shop-back" />
+        <module name="wsmhz.shop.back" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="wsmhz-shop-back" target="1.8" />
-      <module name="wsmhz-web-shop" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
