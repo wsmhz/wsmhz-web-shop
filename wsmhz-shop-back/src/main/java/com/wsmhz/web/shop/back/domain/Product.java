@@ -1,14 +1,25 @@
 package com.wsmhz.web.shop.back.domain;
 
 import com.wsmhz.security.core.domain.common.Domain;
+import com.wsmhz.web.shop.back.enums.ProductConst;
+import org.apache.ibatis.type.JdbcType;
+import tk.mybatis.mapper.annotation.ColumnType;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 /**
  * create by tangbj on 2018/5/18
  */
+@Table(name = "product")
 public class Product extends Domain {
     /**
      * Id
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     /**
      * 分类Id
@@ -45,11 +56,13 @@ public class Product extends Domain {
     /**
      * 状态
      */
-    private Integer status;
+    @ColumnType(jdbcType = JdbcType.VARCHAR)
+    private ProductConst.StatusEnum status;
     /**
      * 标志（扩展）
      */
-    private Integer flag;
+    @ColumnType(jdbcType = JdbcType.VARCHAR)
+    private ProductConst.FlagEnum flag;
 
     public Integer getId() {
         return id;
@@ -123,19 +136,19 @@ public class Product extends Domain {
         this.stock = stock;
     }
 
-    public Integer getStatus() {
+    public ProductConst.StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(ProductConst.StatusEnum status) {
         this.status = status;
     }
 
-    public Integer getFlag() {
+    public ProductConst.FlagEnum getFlag() {
         return flag;
     }
 
-    public void setFlag(Integer flag) {
+    public void setFlag(ProductConst.FlagEnum flag) {
         this.flag = flag;
     }
 }

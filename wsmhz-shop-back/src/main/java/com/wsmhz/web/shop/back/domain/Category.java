@@ -2,13 +2,21 @@ package com.wsmhz.web.shop.back.domain;
 
 import com.wsmhz.security.core.domain.common.Domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * create by tangbj on 2018/5/18
  */
+@Table(name = "category")
 public class Category extends Domain {
     /**
      * Id
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     /**
      * 父Id
