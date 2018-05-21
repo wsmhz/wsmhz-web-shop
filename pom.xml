@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>wsmhz-shop-back</module>
+        <module>wsmhz-shop-common</module>
+        <module>wsmhz-shop-front</module>
     </modules>
 
     <properties>
@@ -35,37 +37,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-
-        <dependency>
-            <groupId>com.wsmhz</groupId>
-            <artifactId>wsmhz-security-browser</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wsmhz</groupId>
-            <artifactId>wsmhz.sercurity.authorize</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <!-- FTP依赖 -->
-        <dependency>
-            <groupId>commons-net</groupId>
-            <artifactId>commons-net</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-
-    </dependencies>
 
     <build>
         <plugins>

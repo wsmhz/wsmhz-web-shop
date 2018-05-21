@@ -2,11 +2,11 @@ package mapper;
 
 import com.github.pagehelper.PageInfo;
 import com.wsmhz.web.shop.back.Main;
-import com.wsmhz.web.shop.back.dao.ProductMapper;
-import com.wsmhz.web.shop.back.domain.Product;
-import com.wsmhz.web.shop.back.enums.ProductConst;
-import com.wsmhz.web.shop.back.properties.BusinessProperties;
-import com.wsmhz.web.shop.back.service.ProductService;
+import com.wsmhz.web.shop.common.dao.ProductMapper;
+import com.wsmhz.web.shop.common.domain.Product;
+import com.wsmhz.web.shop.common.enums.ProductConst;
+import com.wsmhz.web.shop.common.properties.BusinessProperties;
+import com.wsmhz.web.shop.common.service.ProductService;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;

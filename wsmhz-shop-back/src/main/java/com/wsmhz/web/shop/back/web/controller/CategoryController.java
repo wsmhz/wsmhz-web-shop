@@ -3,8 +3,8 @@ package com.wsmhz.web.shop.back.web.controller;
 import com.github.pagehelper.PageInfo;
 import com.wsmhz.security.core.common.ServerResponse;
 import com.wsmhz.security.core.dto.MybatisPage;
-import com.wsmhz.web.shop.back.domain.Category;
-import com.wsmhz.web.shop.back.service.CategoryService;
+import com.wsmhz.web.shop.common.domain.Category;
+import com.wsmhz.web.shop.common.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

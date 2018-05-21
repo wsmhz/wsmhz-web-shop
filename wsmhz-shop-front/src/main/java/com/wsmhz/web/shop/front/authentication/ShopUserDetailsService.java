@@ -1,36 +1,36 @@
-package com.wsmhz.web.shop.back.authentication;
+package com.wsmhz.web.shop.front.authentication;
 
-import com.wsmhz.authorize.domain.Admin;
-import com.wsmhz.authorize.service.AdminService;
+import com.wsmhz.web.shop.common.domain.User;
+import com.wsmhz.web.shop.common.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 
 /**
  * create by tangbj on 2018/5/6
  */
 @Component
-public class RbacUserDetailsService implements UserDetailsService ,SocialUserDetailsService{
+public class ShopUserDetailsService implements UserDetailsService ,SocialUserDetailsService{
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource
-    private AdminService adminService;
+    @Autowired
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username){
 
-        logger.info("RBAC登录用户名:" + username);
-        Admin admin = adminService.selectByUsername(username);
-        return admin;
+        logger.info("shop登录用户名:" + username);
+        User user = userService.selectByUsername(username);
+        return user;
 
     }
 
