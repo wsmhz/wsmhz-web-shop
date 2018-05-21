@@ -9,12 +9,16 @@
         <module name="wsmhz-shop-common" />
         <module name="wsmhz-shop-front" />
         <module name="wsmhz.shop.back" />
+        <module name="wsmhz.shop.common" />
+        <module name="wsmhz.shop.front" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="wsmhz-shop-common" target="1.8" />
       <module name="wsmhz-shop-front" target="1.8" />
       <module name="wsmhz.shop.back" target="1.8" />
+      <module name="wsmhz.shop.common" target="1.8" />
+      <module name="wsmhz.shop.front" target="1.8" />
       <module name="wsmhz.web.shop" target="1.8" />
     </bytecodeTargetLevel>
   </component>

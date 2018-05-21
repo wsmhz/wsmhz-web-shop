@@ -41,15 +41,24 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
 
     @Override
     public List<Category> selectAllWithChildren() {
-        return null;
-    }
-
-    private Category deepSelectByParent(Category category,List<Category> list){
         Example example = new Example(Category.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("parent_id",category.getId());
-        List<Category> childCategoryList = categoryMapper.selectByExample(example);
-//        if
-        return  null;
+        criteria.andEqualTo("parentId",0);
+        List<Category> categoryList = categoryMapper.selectByExample(example);// 所有父级
+        deepSelectByParent(categoryList);
+        return categoryList;
+    }
+
+    private void deepSelectByParent(List<Category> list){
+        for (Category category : list) {
+            Example example = new Example(Category.class);
+            Example.Criteria criteria = example.createCriteria();
+            criteria.andEqualTo("parentId",category.getId());
+            List<Category> childCategoryList = categoryMapper.selectByExample(example);
+            if( ! childCategoryList.isEmpty()){
+                category.setChildren(childCategoryList);
+            }
+            deepSelectByParent(childCategoryList);
+        }
     }
 }

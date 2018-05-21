@@ -1,13 +1,12 @@
 package mapper;
 
 import com.github.pagehelper.PageInfo;
-import com.wsmhz.web.shop.back.Main;
+import com.wsmhz.web.shop.back.RBACMain;
 import com.wsmhz.web.shop.common.dao.ProductMapper;
 import com.wsmhz.web.shop.common.domain.Product;
 import com.wsmhz.web.shop.common.enums.ProductConst;
 import com.wsmhz.web.shop.common.properties.BusinessProperties;
 import com.wsmhz.web.shop.common.service.ProductService;
-import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import java.util.List;
  * create by tangbj on 2018/5/18
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Main.class)
+@SpringBootTest(classes = RBACMain.class)
 public class ProductTest {
     @Autowired
     private ProductMapper productMapper;
