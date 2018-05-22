@@ -31,7 +31,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         example.setOrderByClause("update_date desc");
         Example.Criteria criteria = example.createCriteria();
         if(StringUtils.isNotBlank(name)){
-            criteria.orLike("name","%"+name+"%");
+            criteria.orLike("name","%"+name+"%").orLike("subtitle","%"+name+"%");
         }
         if( ! Objects.isNull(categoryId)){
             criteria.andEqualTo("categoryId",categoryId);
