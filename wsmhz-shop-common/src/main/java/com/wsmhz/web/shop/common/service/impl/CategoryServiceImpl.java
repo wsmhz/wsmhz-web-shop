@@ -40,10 +40,10 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     }
 
     @Override
-    public List<Category> selectAllWithChildren() {
+    public List<Category> selectAllWithChildren(Integer parentCategoryId) {
         Example example = new Example(Category.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("parentId",0);
+        criteria.andEqualTo("parentId",parentCategoryId);
         List<Category> categoryList = categoryMapper.selectByExample(example);// 所有父级
         deepSelectByParent(categoryList);
         return categoryList;

@@ -13,5 +13,5 @@ public interface CategoryService extends BaseService<Category> {
 
     PageInfo<Category> selectPageListByNameAndStatus(Integer pageNum, Integer pageSize, String name,Boolean status);
 
-    List<Category> selectAllWithChildren();
+    List<Category> selectAllWithChildren(Integer parentCategoryId);
 }
