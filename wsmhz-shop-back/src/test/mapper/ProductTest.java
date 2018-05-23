@@ -51,4 +51,10 @@ public class ProductTest {
         System.out.println(ip);
     }
 
+    @Test
+    public void frontSelect(){
+        PageInfo<Product> pageInfo = productService.selectPageListByNameAndcategoryId(1,10,"门店",null,ProductConst.StatusEnum.ON_SALE,null);
+        System.out.println(pageInfo.getList());
+    }
+
 }

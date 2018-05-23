@@ -30,18 +30,18 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         Example example = new Example(Product.class);
         example.setOrderByClause("update_date desc");
         Example.Criteria criteria = example.createCriteria();
-        if(StringUtils.isNotBlank(name)){
-            criteria.orLike("name","%"+name+"%").orLike("subtitle","%"+name+"%").andEqualTo("status",status);;
+        if( ! Objects.isNull(status)){
+            criteria.andEqualTo("status",status);
         }
-//        if( ! Objects.isNull(status)){
-//            criteria.andEqualTo("status",status);
-//        }
-//        if( ! Objects.isNull(categoryId)){
-//            criteria.andEqualTo("categoryId",categoryId);
-//        }
-//        if( ! Objects.isNull(flag)){
-//            criteria.andEqualTo("flag",flag);
-//        }
+        if(StringUtils.isNotBlank(name)) {
+            criteria.andCondition("(name like '%"+name+"%' or subtitle like '%"+name+"%')");
+        }
+        if( ! Objects.isNull(categoryId)){
+            criteria.andEqualTo("categoryId",categoryId);
+        }
+        if( ! Objects.isNull(flag)){
+            criteria.andEqualTo("flag",flag);
+        }
         List<Product> list = productMapper.selectByExample(example);
         return new PageInfo<>(list);
     }
