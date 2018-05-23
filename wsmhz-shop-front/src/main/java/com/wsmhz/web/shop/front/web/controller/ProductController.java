@@ -23,7 +23,7 @@ public class ProductController {
         return  ServerResponse.createBySuccess(productService.selectByPrimaryKey(id));
     }
 
-    @GetMapping()
+    @PostMapping()
     public ServerResponse<PageInfo> selectAllOfPage(@RequestParam(value = "pageNum")Integer pageNum,
                                                     @RequestParam(value = "pageSize")Integer pageSize,
                                                     @RequestParam(value = "keyWord",required = false)String keyWord,

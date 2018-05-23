@@ -31,17 +31,17 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         example.setOrderByClause("update_date desc");
         Example.Criteria criteria = example.createCriteria();
         if(StringUtils.isNotBlank(name)){
-            criteria.orLike("name","%"+name+"%").orLike("subtitle","%"+name+"%");
+            criteria.orLike("name","%"+name+"%").orLike("subtitle","%"+name+"%").andEqualTo("status",status);;
         }
-        if( ! Objects.isNull(categoryId)){
-            criteria.andEqualTo("categoryId",categoryId);
-        }
-        if( ! Objects.isNull(status)){
-            criteria.andEqualTo("status",status);
-        }
-        if( ! Objects.isNull(status)){
-            criteria.andEqualTo("flag",flag);
-        }
+//        if( ! Objects.isNull(status)){
+//            criteria.andEqualTo("status",status);
+//        }
+//        if( ! Objects.isNull(categoryId)){
+//            criteria.andEqualTo("categoryId",categoryId);
+//        }
+//        if( ! Objects.isNull(flag)){
+//            criteria.andEqualTo("flag",flag);
+//        }
         List<Product> list = productMapper.selectByExample(example);
         return new PageInfo<>(list);
     }
