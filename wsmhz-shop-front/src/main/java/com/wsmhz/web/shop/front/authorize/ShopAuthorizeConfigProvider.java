@@ -2,7 +2,6 @@ package com.wsmhz.web.shop.front.authorize;
 
 import com.wsmhz.security.core.authorize.AuthorizeConfigProvider;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
@@ -17,7 +16,7 @@ public class ShopAuthorizeConfigProvider implements AuthorizeConfigProvider {
     @Override
     public boolean config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
         config
-                .antMatchers(HttpMethod.GET, "/product/**","/category/**")
+                .antMatchers("/product/**","/category/**","user/register")
                     .permitAll();
         return true;
     }

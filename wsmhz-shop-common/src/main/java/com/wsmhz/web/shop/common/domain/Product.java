@@ -20,11 +20,11 @@ public class Product extends Domain {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     /**
      * 分类Id
      */
-    private Integer categoryId;
+    private Long categoryId;
     /**
      * 名称
      */
@@ -64,19 +64,19 @@ public class Product extends Domain {
     @ColumnType(jdbcType = JdbcType.VARCHAR)
     private ProductConst.FlagEnum flag;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getCategoryId() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 

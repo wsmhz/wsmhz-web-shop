@@ -45,4 +45,10 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
         List<Product> list = productMapper.selectByExample(example);
         return new PageInfo<>(list);
     }
+
+//    private List<Product> deepSelectByCategoryId(List<Product> list,Integer categoryId){
+//        Example example = new Example(Product.class);
+//        Example.Criteria criteria = example.createCriteria();
+//
+//    }
 }

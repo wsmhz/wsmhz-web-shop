@@ -16,11 +16,11 @@ public class Category extends Domain {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     /**
      * 父Id
      */
-    private Integer parentId;
+    private Long parentId;
     /**
      * 名称
      */
@@ -37,19 +37,19 @@ public class Category extends Domain {
     @Transient
     private List<Category> children = new ArrayList<>();
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(Integer parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 

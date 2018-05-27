@@ -2,25 +2,30 @@ package com.wsmhz.web.shop.common.domain;
 
 import com.wsmhz.security.core.domain.common.Domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * create by tangbj on 2018/5/18
  */
-//@Table(name = "cart")
+@Table(name = "cart")
 public class Cart extends Domain {
     /**
      * Id
      */
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * 用户Id
      */
-    private Integer userId;
+    private Long userId;
     /**
      * 产品Id
      */
-    private Integer productId;
+    private Long productId;
     /**
      * 数量
      */
@@ -30,27 +35,27 @@ public class Cart extends Domain {
      */
     private Boolean checked;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 

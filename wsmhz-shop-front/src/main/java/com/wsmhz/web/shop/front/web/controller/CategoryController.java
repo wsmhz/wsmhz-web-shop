@@ -21,14 +21,14 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/{id}")
-    public ServerResponse<Category> select(@PathVariable("id")Long id){
-        return  ServerResponse.createBySuccess(categoryService.selectByPrimaryKey(id));
-    }
-
     @GetMapping()
     public ServerResponse<List<Category>> selectAll(){
-        return  ServerResponse.createBySuccess(categoryService.selectAll());
+        return  ServerResponse.createBySuccess(categoryService.selectAllWithChildren(new Integer(0).longValue()));
+    }
+
+    @GetMapping("/{id}")
+    public ServerResponse<List<Category>> select(@PathVariable("id")Long id){
+        return  ServerResponse.createBySuccess(categoryService.select(id));
     }
 
 

@@ -22,7 +22,7 @@ public class CategoryTest {
 
     @Test
     public void deep(){
-        List<Category> list = categoryService.selectAllWithChildren(0);
+        List<Category> list = categoryService.selectAllWithChildren(Long.valueOf(0));
         for (Category category : list) {
             System.out.println(category);
         }

@@ -5,7 +5,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 
 /**
@@ -13,6 +13,8 @@ import java.util.Collection;
  */
 @Table(name = "user")
 public class User extends Domain implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
@@ -20,6 +22,7 @@ public class User extends Domain implements UserDetails {
     @JsonIgnore()
     private String password;
 
+    @Column(name = "status")
     private Boolean status;
 
     private String email;

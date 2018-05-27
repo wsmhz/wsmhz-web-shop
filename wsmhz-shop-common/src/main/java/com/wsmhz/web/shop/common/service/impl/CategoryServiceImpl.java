@@ -30,7 +30,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         example.setOrderByClause("update_date desc");
         Example.Criteria criteria = example.createCriteria();
         if(StringUtils.isNotBlank(name)){
-            criteria.orLike("name","%"+name+"%");
+            criteria.andLike("name","%"+name+"%");
         }
         if( ! Objects.isNull(status)){
             criteria.andEqualTo("status",status);
@@ -40,12 +40,18 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     }
 
     @Override
-    public List<Category> selectAllWithChildren(Integer parentCategoryId) {
+    public List<Category> selectAllWithChildren(Long parentCategoryId) {
+        List<Category> categoryList = select(parentCategoryId);
+        deepSelectByParent(categoryList);
+        return categoryList;
+    }
+
+    @Override
+    public List<Category> select(Long id) {
         Example example = new Example(Category.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("parentId",parentCategoryId);
-        List<Category> categoryList = categoryMapper.selectByExample(example);// 所有父级
-        deepSelectByParent(categoryList);
+        criteria.andEqualTo("parentId",id);
+        List<Category> categoryList = categoryMapper.selectByExample(example);// 父级
         return categoryList;
     }
 
