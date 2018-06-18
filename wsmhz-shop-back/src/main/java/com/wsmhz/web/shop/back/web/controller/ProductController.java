@@ -30,10 +30,10 @@ public class ProductController {
     public ServerResponse<MybatisPage> selectAllOfPage(@RequestParam(value = "pageNum")Integer pageNum,
                                                        @RequestParam(value = "pageSize")Integer pageSize,
                                                        @RequestParam(value = "name",required = false)String name,
-                                                       @RequestParam(value = "categoryId",required = false)Integer categoryId,
+                                                       @RequestParam(value = "categoryId",required = false)Long categoryId,
                                                        @RequestParam(value = "status",required = false)ProductConst.StatusEnum status,
                                                        @RequestParam(value = "flag",required = false)ProductConst.FlagEnum flag){
-        PageInfo<Product> pageInfo = productService.selectPageListByNameAndcategoryId(pageNum,pageSize,name,categoryId,status,flag);
+        PageInfo<Product> pageInfo = productService.selectPageListByNameAndCategoryId(pageNum,pageSize,name,categoryId,status,flag);
         return  ServerResponse.createBySuccess(new MybatisPage<>(pageInfo.getTotal(),pageInfo.getList()));
     }
 

@@ -1,6 +1,7 @@
 package com.wsmhz.web.shop.common.dto;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * create by tangbj on 2018/5/27
@@ -23,7 +24,7 @@ public class OrderItemDto {
 
     private BigDecimal totalPrice;
 
-    private String createTime;
+    private Date createTime;
 
     public Long getOrderNo() {
         return orderNo;
@@ -81,11 +82,11 @@ public class OrderItemDto {
         this.totalPrice = totalPrice;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 }

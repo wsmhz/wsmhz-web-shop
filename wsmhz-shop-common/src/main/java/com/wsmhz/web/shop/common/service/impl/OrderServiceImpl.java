@@ -1,24 +1,28 @@
 package com.wsmhz.web.shop.common.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.wsmhz.security.core.common.ServerResponse;
 import com.wsmhz.security.core.service.BaseServiceImpl;
 import com.wsmhz.web.shop.common.dao.OrderItemMapper;
 import com.wsmhz.web.shop.common.dao.OrderMapper;
 import com.wsmhz.web.shop.common.dao.ProductMapper;
-import com.wsmhz.web.shop.common.domain.Cart;
-import com.wsmhz.web.shop.common.domain.Order;
-import com.wsmhz.web.shop.common.domain.OrderItem;
-import com.wsmhz.web.shop.common.domain.Product;
+import com.wsmhz.web.shop.common.domain.*;
+import com.wsmhz.web.shop.common.dto.OrderItemDto;
+import com.wsmhz.web.shop.common.dto.ShippingDto;
 import com.wsmhz.web.shop.common.enums.OrderConst;
 import com.wsmhz.web.shop.common.enums.ProductConst;
 import com.wsmhz.web.shop.common.service.CartService;
 import com.wsmhz.web.shop.common.service.OrderService;
+import com.wsmhz.web.shop.common.service.ShippingService;
 import com.wsmhz.web.shop.common.utils.BigDecimalUtil;
+import com.wsmhz.web.shop.common.vo.OrderVo;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -38,6 +42,30 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     private ProductMapper productMapper;
     @Autowired
     private CartService cartService;
+    @Autowired
+    private ShippingService shippingService;
+
+    @Override
+    public Order selectByUserIdAndOrderNo(Long userId, Long orderNo) {
+        Example example = new Example(Order.class);
+        Example.Criteria criteria = example.createCriteria();
+        if(userId != null){
+            criteria.andEqualTo("userId",userId);
+        }
+        criteria.andEqualTo("orderNo",orderNo);
+        return orderMapper.selectOneByExample(example);
+    }
+
+    @Override
+    public List<OrderItem> selectByOrderItemNoAndUserId(Long orderNo, Long userId) {
+        Example example = new Example(OrderItem.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("orderNo",orderNo);
+        if(userId != null){
+            criteria.andEqualTo("userId",userId);
+        }
+        return orderItemMapper.selectByExample(example);
+    }
 
     @Transactional
     @Override
@@ -66,6 +94,128 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         this.cleanCart(cartList);
         return ServerResponse.createBySuccess(order.getOrderNo());
     }
+
+    @Override
+    public ServerResponse queryOrderPayStatus(Long userId, Long orderNo) {
+        Order order = selectByUserIdAndOrderNo(userId,orderNo);
+        if(order == null){
+            return ServerResponse.createByErrorMessage("用户没有该订单");
+        }
+        if(order.getStatus().getCode() >= OrderConst.OrderStatusEnum.PAID.getCode()){
+            return ServerResponse.createBySuccess(order.getStatus().getCode());
+        }
+        return ServerResponse.createByError();
+    }
+
+    @Override
+    public ServerResponse cancel(Long userId,Long orderNo) {
+        Order order  = selectByUserIdAndOrderNo(userId,orderNo);
+        if(order == null){
+            return ServerResponse.createByErrorMessage("该用户此订单不存在");
+        }
+        if(order.getStatus().getCode() != OrderConst.OrderStatusEnum.NO_PAY.getCode()){
+            return ServerResponse.createByErrorMessage("已付款,无法取消订单");
+        }
+        Order updateOrder = new Order();
+        updateOrder.setId(order.getId());
+        updateOrder.setStatus(OrderConst.OrderStatusEnum.CANCELED);
+        int row = orderMapper.updateByPrimaryKeySelective(updateOrder);
+        if(row > 0){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
+    }
+
+    @Override
+    public ServerResponse<PageInfo> selectOrderListByUserId(Integer pageNum, Integer pageSize,Long userId,Long orderNo,OrderConst.OrderStatusEnum status) {
+        List<Order> orderList = getOrderListByUserId(pageNum,pageSize,userId,orderNo,status).getList();
+        List<OrderVo> orderVoList = assembleOrderVoList(orderList,userId);
+        PageInfo pageInfo = new PageInfo<>(orderVoList);
+        return ServerResponse.createBySuccess(pageInfo);
+    }
+
+    private PageInfo<Order> getOrderListByUserId(Integer pageNum, Integer pageSize, Long userId, Long orderNo,OrderConst.OrderStatusEnum status) {
+        PageHelper.startPage(pageNum, pageSize);
+        Example example = new Example(Order.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId",userId);
+        if(orderNo != null){
+            criteria.andEqualTo("orderNo",orderNo);
+        }
+        if(status != null){
+            criteria.andEqualTo("status",status);
+        }
+        return new PageInfo<>(orderMapper.selectByExample(example));
+    }
+
+    private List<OrderVo> assembleOrderVoList(List<Order> orderList, Long userId){
+        List<OrderVo> orderVoList = Lists.newArrayList();
+        for(Order order : orderList){
+            List<OrderItem>  orderItemList = selectByOrderItemNoAndUserId(order.getOrderNo(),userId);
+
+            OrderVo orderVo = assembleOrderVo(order,orderItemList);
+            orderVoList.add(orderVo);
+        }
+        return orderVoList;
+    }
+
+    private OrderVo assembleOrderVo(Order order,List<OrderItem> orderItemList){
+        OrderVo orderVo = new OrderVo();
+        orderVo.setOrderNo(order.getOrderNo());
+        orderVo.setPayment(order.getPayment());
+        orderVo.setPaymentTypeDesc(order.getPaymentType().getValue());
+
+        orderVo.setPostage(order.getPostage());
+        orderVo.setStatusCode(order.getStatus().getCode());
+
+        Shipping shipping = shippingService.selectByPrimaryKey(order.getShippingId());
+        if(shipping != null){
+            orderVo.setShipping(assembleShippingVo(shipping));
+        }
+
+        orderVo.setPaymentTime(order.getPaymentTime());
+        orderVo.setSendTime(order.getSendTime());
+        orderVo.setEndTime(order.getEndTime());
+        orderVo.setCreateTime(order.getCreateDate());
+        orderVo.setCloseTime(order.getCloseTime());
+
+        List<OrderItemDto> orderItemVoList = Lists.newArrayList();
+
+        for(OrderItem orderItem : orderItemList){
+            OrderItemDto orderItemDto = assembleOrderItemVo(orderItem);
+            orderItemVoList.add(orderItemDto);
+        }
+        orderVo.setOrderItemList(orderItemVoList);
+        return orderVo;
+    }
+
+    private OrderItemDto assembleOrderItemVo(OrderItem orderItem){
+        OrderItemDto orderItemDto = new OrderItemDto();
+        orderItemDto.setOrderNo(orderItem.getOrderNo());
+        orderItemDto.setProductId(orderItem.getProductId());
+        orderItemDto.setProductName(orderItem.getProductName());
+        orderItemDto.setProductImage(orderItem.getProductImage());
+        orderItemDto.setCurrentUnitPrice(orderItem.getCurrentUnitPrice());
+        orderItemDto.setQuantity(orderItem.getQuantity());
+        orderItemDto.setTotalPrice(orderItem.getTotalPrice());
+
+        orderItemDto.setCreateTime(orderItem.getCreateDate());
+        return orderItemDto;
+    }
+
+    private ShippingDto assembleShippingVo(Shipping shipping){
+        ShippingDto shippingDto = new ShippingDto();
+        shippingDto.setReceiverName(shipping.getReceiverName());
+        shippingDto.setReceiverAddress(shipping.getReceiverAddress());
+        shippingDto.setReceiverProvince(shipping.getReceiverProvince());
+        shippingDto.setReceiverCity(shipping.getReceiverCity());
+        shippingDto.setReceiverDistrict(shipping.getReceiverDistrict());
+        shippingDto.setReceiverMobile(shipping.getReceiverMobile());
+        shippingDto.setReceiverZip(shipping.getReceiverZip());
+        shippingDto.setReceiverPhone(shippingDto.getReceiverPhone());
+        return shippingDto;
+    }
+
 
     private ServerResponse<List<OrderItem>> getCartOrderItem(Long userId,List<Cart> cartList){
         List<OrderItem> orderItemList = Lists.newArrayList();

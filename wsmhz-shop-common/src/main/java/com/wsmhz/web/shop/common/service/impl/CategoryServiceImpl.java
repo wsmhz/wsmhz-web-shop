@@ -13,6 +13,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * create by tangbj on 2018/5/19
@@ -41,18 +42,31 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
 
     @Override
     public List<Category> selectAllWithChildren(Long parentCategoryId) {
-        List<Category> categoryList = select(parentCategoryId);
+        List<Category> categoryList = selectByParentId(parentCategoryId);
         deepSelectByParent(categoryList);
         return categoryList;
     }
 
     @Override
-    public List<Category> select(Long id) {
+    public List<Category> selectByParentId(Long id) {
         Example example = new Example(Category.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("parentId",id);
-        List<Category> categoryList = categoryMapper.selectByExample(example);// 父级
-        return categoryList;
+        return categoryMapper.selectByExample(example);// 父级
+    }
+
+    @Override
+    public Set<Long> selectDeepChildIds(Set<Long> idSet, Long id) {
+        Category category = categoryMapper.selectByPrimaryKey(id);
+        if(category != null){
+            idSet.add(category.getId());
+        }
+
+        List<Category> list = selectByParentId(id);
+        for (Category item : list) {
+            selectDeepChildIds(idSet,item.getId());
+        }
+        return idSet;
     }
 
     private void deepSelectByParent(List<Category> list){
@@ -67,4 +81,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
             deepSelectByParent(childCategoryList);
         }
     }
+
+
 }

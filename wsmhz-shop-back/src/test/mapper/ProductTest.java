@@ -38,7 +38,7 @@ public class ProductTest {
 
     @Test
     public void selectPage(){
-        PageInfo<Product> pageInfo = productService.selectPageListByNameAndcategoryId(1,10,"i",1001, ProductConst.StatusEnum.ON_SALE,null);
+        PageInfo<Product> pageInfo = productService.selectPageListByNameAndCategoryId(1,10,"i",Long.valueOf(1001), ProductConst.StatusEnum.ON_SALE,null);
         List<Product> list = pageInfo.getList();
         for (Product product : list) {
             System.out.println(product);
@@ -53,7 +53,7 @@ public class ProductTest {
 
     @Test
     public void frontSelect(){
-        PageInfo<Product> pageInfo = productService.selectPageListByNameAndcategoryId(1,10,"门店",null,ProductConst.StatusEnum.ON_SALE,null);
+        PageInfo<Product> pageInfo = productService.selectPageListByNameAndCategoryId(1,10,null,Long.valueOf(1001),ProductConst.StatusEnum.ON_SALE,null);
         System.out.println(pageInfo.getList());
     }
 

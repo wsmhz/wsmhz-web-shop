@@ -27,8 +27,9 @@ public class ProductController {
     public ServerResponse<PageInfo> selectAllOfPage(@RequestParam(value = "pageNum")Integer pageNum,
                                                     @RequestParam(value = "pageSize")Integer pageSize,
                                                     @RequestParam(value = "keyWord",required = false)String keyWord,
-                                                    @RequestParam(value = "categoryId",required = false)Integer categoryId){
-        PageInfo<Product> pageInfo = productService.selectPageListByNameAndcategoryId(pageNum,pageSize,keyWord,categoryId,ProductConst.StatusEnum.ON_SALE,null);
+                                                    @RequestParam(value = "categoryId",required = false)Long categoryId,
+                                                    @RequestParam(value = "flag",required = false)ProductConst.FlagEnum flag){
+        PageInfo<Product> pageInfo = productService.selectPageListByNameAndCategoryId(pageNum,pageSize,keyWord,categoryId,ProductConst.StatusEnum.ON_SALE,flag);
         return  ServerResponse.createBySuccess(pageInfo);
     }
 

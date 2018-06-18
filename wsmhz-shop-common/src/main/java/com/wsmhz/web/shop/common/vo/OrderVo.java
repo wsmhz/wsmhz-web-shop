@@ -20,9 +20,9 @@ public class OrderVo {
 
     private Integer postage;
 
-    private String statusDesc;
+    private Integer statusCode;
 
-    private String paymentTime;
+    private Date paymentTime;
 
     private Date sendTime;
 
@@ -36,4 +36,100 @@ public class OrderVo {
     private List<OrderItemDto> orderItemList;
 
     private ShippingDto shipping;
+
+    public Long getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Long orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public BigDecimal getPayment() {
+        return payment;
+    }
+
+    public void setPayment(BigDecimal payment) {
+        this.payment = payment;
+    }
+
+    public String getPaymentTypeDesc() {
+        return paymentTypeDesc;
+    }
+
+    public void setPaymentTypeDesc(String paymentTypeDesc) {
+        this.paymentTypeDesc = paymentTypeDesc;
+    }
+
+    public Integer getPostage() {
+        return postage;
+    }
+
+    public void setPostage(Integer postage) {
+        this.postage = postage;
+    }
+
+    public Integer getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public Date getPaymentTime() {
+        return paymentTime;
+    }
+
+    public void setPaymentTime(Date paymentTime) {
+        this.paymentTime = paymentTime;
+    }
+
+    public Date getSendTime() {
+        return sendTime;
+    }
+
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public Date getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(Date closeTime) {
+        this.closeTime = closeTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public List<OrderItemDto> getOrderItemList() {
+        return orderItemList;
+    }
+
+    public void setOrderItemList(List<OrderItemDto> orderItemList) {
+        this.orderItemList = orderItemList;
+    }
+
+    public ShippingDto getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(ShippingDto shipping) {
+        this.shipping = shipping;
+    }
 }

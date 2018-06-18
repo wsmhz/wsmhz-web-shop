@@ -10,5 +10,5 @@ import com.wsmhz.web.shop.common.enums.ProductConst;
  */
 public interface ProductService extends BaseService<Product>{
 
-    PageInfo<Product> selectPageListByNameAndcategoryId(Integer pageNum, Integer pageSize, String name, Integer categoryId, ProductConst.StatusEnum status, ProductConst.FlagEnum flag);
+    PageInfo<Product> selectPageListByNameAndCategoryId(Integer pageNum, Integer pageSize, String name, Long categoryId, ProductConst.StatusEnum status, ProductConst.FlagEnum flag);
 }

@@ -27,8 +27,8 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public ServerResponse<List<Category>> select(@PathVariable("id")Long id){
-        return  ServerResponse.createBySuccess(categoryService.select(id));
+    public ServerResponse<List<Category>> selectByParentId(@PathVariable("id")Long id){
+        return  ServerResponse.createBySuccess(categoryService.selectByParentId(id));
     }
 
 

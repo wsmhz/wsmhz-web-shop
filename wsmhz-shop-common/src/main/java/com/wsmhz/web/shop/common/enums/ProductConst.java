@@ -41,7 +41,8 @@ public class ProductConst {
     }
 
     public enum FlagEnum {
-        HOT(1,"热销");
+        HOT(1,"热销"),
+        NORMAL(0,"常规");
 
         private String value;
         private int code;
