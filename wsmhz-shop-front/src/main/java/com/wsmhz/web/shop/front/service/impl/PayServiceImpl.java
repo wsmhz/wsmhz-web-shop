@@ -25,16 +25,16 @@ import com.wsmhz.web.shop.common.service.OrderService;
 import com.wsmhz.web.shop.common.utils.BigDecimalUtil;
 import com.wsmhz.web.shop.common.utils.FTPUtil;
 import com.wsmhz.web.shop.front.service.PayService;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +46,7 @@ import java.util.Map;
 public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService{
 
     private static AlipayTradeService tradeService;
+    private static final Logger logger = LoggerFactory.getLogger(PayServiceImpl.class);
     static {
 
         /** 一定要在创建AlipayTradeService之前调用Configs.init()设置默认参数
@@ -53,9 +54,13 @@ public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService
          */
         File file = null;
         try {
-            file = ResourceUtils.getFile("classpath:zfbInfo.properties");
-            Configs.init(file.getAbsolutePath());
-        } catch (FileNotFoundException e) {
+            InputStream stream = PayServiceImpl.class.getClassLoader().getResourceAsStream("zfbInfo.properties");
+            File targetFile = new File("wsmhz-shop-front/src/main/resources/zfbInfo.properties");
+            FileUtils.copyInputStreamToFile(stream, targetFile);
+//            file = ResourceUtils.getFile("classpath:zfbInfo.properties");
+            logger.info("支付宝配置文件新的路径："+targetFile.getAbsolutePath());
+            Configs.init(targetFile.getAbsolutePath());
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -65,7 +70,6 @@ public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService
         tradeService = new AlipayTradeServiceImpl.ClientBuilder().build();
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(PayServiceImpl.class);
 
     @Autowired
     private BusinessProperties businessProperties;
