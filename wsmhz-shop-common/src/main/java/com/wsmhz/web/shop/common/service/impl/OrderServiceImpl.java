@@ -19,12 +19,14 @@ import com.wsmhz.web.shop.common.service.ShippingService;
 import com.wsmhz.web.shop.common.utils.BigDecimalUtil;
 import com.wsmhz.web.shop.common.vo.OrderVo;
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -128,17 +130,53 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
     @Override
     public ServerResponse<PageInfo> selectOrderListByUserId(Integer pageNum, Integer pageSize,Long userId,Long orderNo,OrderConst.OrderStatusEnum status) {
-        List<Order> orderList = getOrderListByUserId(pageNum,pageSize,userId,orderNo,status).getList();
-        List<OrderVo> orderVoList = assembleOrderVoList(orderList,userId);
-        PageInfo pageInfo = new PageInfo<>(orderVoList);
-        return ServerResponse.createBySuccess(pageInfo);
+        PageInfo<Order> pageInfo = getOrderListByUserId(pageNum,pageSize,userId,orderNo,status);
+        List<OrderVo> orderVoList = assembleOrderVoList(pageInfo.getList(),userId);
+        PageInfo<OrderVo> voPageInfo = new PageInfo<>();
+        pageInfo.setList(null);
+        BeanUtils.copyProperties(pageInfo,voPageInfo);
+        voPageInfo.setList(orderVoList);
+        return ServerResponse.createBySuccess(voPageInfo);
+    }
+
+    @Override
+    public ServerResponse selectOrderDetail(Long userId, Long id) {
+        Order order = selectByPrimaryKey(id);
+        if(order != null){
+            List<OrderItem> orderItemList = selectByOrderItemNoAndUserId(order.getOrderNo(),userId);
+            OrderVo orderVo = assembleOrderVo(order,orderItemList);
+            return ServerResponse.createBySuccess(orderVo);
+        }
+        return  ServerResponse.createByErrorMessage("没有找到该订单");
+    }
+
+    @Override
+    public ServerResponse shipment(Long orderNo) {
+        Order order  = selectByPrimaryKey(orderNo);
+        if(order == null){
+            return ServerResponse.createByErrorMessage("此订单不存在");
+        }
+        if(order.getStatus().getCode() != OrderConst.OrderStatusEnum.PAID.getCode()){
+            return ServerResponse.createByErrorMessage("未付款,无法发货");
+        }
+        Order updateOrder = new Order();
+        updateOrder.setId(order.getId());
+        updateOrder.setStatus(OrderConst.OrderStatusEnum.SHIPPED);
+        updateOrder.setSendTime(new Date());
+        int row = orderMapper.updateByPrimaryKeySelective(updateOrder);
+        if(row > 0){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
     }
 
     private PageInfo<Order> getOrderListByUserId(Integer pageNum, Integer pageSize, Long userId, Long orderNo,OrderConst.OrderStatusEnum status) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(Order.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("userId",userId);
+        if(userId != null){
+            criteria.andEqualTo("userId",userId);
+        }
         if(orderNo != null){
             criteria.andEqualTo("orderNo",orderNo);
         }
@@ -161,12 +199,13 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
     private OrderVo assembleOrderVo(Order order,List<OrderItem> orderItemList){
         OrderVo orderVo = new OrderVo();
+        orderVo.setId(order.getId());
         orderVo.setOrderNo(order.getOrderNo());
         orderVo.setPayment(order.getPayment());
         orderVo.setPaymentTypeDesc(order.getPaymentType().getValue());
 
         orderVo.setPostage(order.getPostage());
-        orderVo.setStatusCode(order.getStatus().getCode());
+        orderVo.setStatusDesc(order.getStatus().getValue());
 
         Shipping shipping = shippingService.selectByPrimaryKey(order.getShippingId());
         if(shipping != null){

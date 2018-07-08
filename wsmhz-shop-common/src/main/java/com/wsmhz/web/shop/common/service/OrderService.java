@@ -30,4 +30,8 @@ public interface OrderService extends BaseService<Order>{
 
     ServerResponse selectOrderListByUserId(Integer pageNum, Integer pageSize, Long userId, Long orderNo, OrderConst.OrderStatusEnum status);
 
+    ServerResponse selectOrderDetail(Long userId, Long id);
+
+    ServerResponse shipment(Long orderNo);
+
 }

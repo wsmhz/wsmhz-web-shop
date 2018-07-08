@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class OrderVo {
 
+    private Long id;
+
     private Long orderNo;
 
     private BigDecimal payment;
@@ -20,7 +22,7 @@ public class OrderVo {
 
     private Integer postage;
 
-    private Integer statusCode;
+    private String statusDesc;
 
     private Date paymentTime;
 
@@ -36,6 +38,14 @@ public class OrderVo {
     private List<OrderItemDto> orderItemList;
 
     private ShippingDto shipping;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getOrderNo() {
         return orderNo;
@@ -69,12 +79,12 @@ public class OrderVo {
         this.postage = postage;
     }
 
-    public Integer getStatusCode() {
-        return statusCode;
+    public String getStatusDesc() {
+        return statusDesc;
     }
 
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
     }
 
     public Date getPaymentTime() {
