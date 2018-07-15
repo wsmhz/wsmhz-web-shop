@@ -14,11 +14,21 @@ public class BusinessProperties {
 
     private FtpProperties ftp;
 
+    private TaskProperties task;
+
     public FtpProperties getFtp() {
         return ftp;
     }
 
     public void setFtp(FtpProperties ftp) {
         this.ftp = ftp;
+    }
+
+    public TaskProperties getTask() {
+        return task;
+    }
+
+    public void setTask(TaskProperties task) {
+        this.task = task;
     }
 }

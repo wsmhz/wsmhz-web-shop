@@ -1,4 +1,5 @@
 import com.wsmhz.web.shop.common.dao.OrderMapper;
+import com.wsmhz.web.shop.common.dao.ProductMapper;
 import com.wsmhz.web.shop.common.domain.Order;
 import com.wsmhz.web.shop.front.ShopMain;
 import org.junit.Test;
@@ -17,10 +18,18 @@ import java.util.List;
 public class OrderTest {
     @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private ProductMapper productMapper;
 
     @Test
     public void selectAll(){
         List<Order> list = orderMapper.selectAll();
         System.out.println(list);
+    }
+
+    @Test
+    public void selectStockByProductIdTest(){
+        int stock  = productMapper.selectStockByProductId(Long.valueOf(1003));
+        System.out.println(stock);
     }
 }

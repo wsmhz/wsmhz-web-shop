@@ -127,4 +127,8 @@ public class OrderConst {
         }
 
     }
+
+    public interface  redis_lock{
+        String CLOSE_ORDER_TASK_LOCK = "CLOSE_ORDER_TASK_LOCK";
+    }
 }

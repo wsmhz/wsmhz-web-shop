@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * create by tangbj on 2018/5/6
  */
-@tk.mybatis.spring.annotation.MapperScan(basePackages = {"com.wsmhz.authorize.dao","com.wsmhz.web.shop.common.dao"})
+@tk.mybatis.spring.annotation.MapperScan(basePackages = {"com.wsmhz.web.shop.common.dao","com.wsmhz.authorize.dao"})
 @SpringBootApplication
 @RestController
 @ComponentScan("com.wsmhz")

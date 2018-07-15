@@ -16,9 +16,11 @@ import com.wsmhz.security.core.common.ServerResponse;
 import com.wsmhz.security.core.service.BaseServiceImpl;
 import com.wsmhz.security.core.utils.DateTimeUtil;
 import com.wsmhz.web.shop.common.dao.PayInfoMapper;
+import com.wsmhz.web.shop.common.dao.ProductMapper;
 import com.wsmhz.web.shop.common.domain.Order;
 import com.wsmhz.web.shop.common.domain.OrderItem;
 import com.wsmhz.web.shop.common.domain.PayInfo;
+import com.wsmhz.web.shop.common.domain.Product;
 import com.wsmhz.web.shop.common.enums.OrderConst;
 import com.wsmhz.web.shop.common.properties.BusinessProperties;
 import com.wsmhz.web.shop.common.service.OrderService;
@@ -27,6 +29,7 @@ import com.wsmhz.web.shop.common.utils.FTPUtil;
 import com.wsmhz.web.shop.front.service.PayService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -77,6 +81,8 @@ public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService
     private OrderService orderService;
     @Autowired
     private PayInfoMapper payInfoMapper;
+    @Autowired
+    private ProductMapper productMapper;
 
     @Override
     public ServerResponse pay(Long orderNo, Long userId, String path) {
@@ -215,6 +221,39 @@ public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService
 
         payInfoMapper.insert(payInfo);
         return ServerResponse.createBySuccess();
+    }
+
+    @Override
+    public void closeOrder(int hour) {
+        Date closeDateTime = DateUtils.addHours(new Date(),-hour);
+        List<Order> orderList = orderService.selectByOrderStatusAndCreateDate(OrderConst.OrderStatusEnum.NO_PAY,closeDateTime);
+
+        for(Order order : orderList){
+            List<OrderItem> orderItemList = orderService.selectByOrderItemNoAndUserId(order.getOrderNo(),null);
+            for(OrderItem orderItem : orderItemList){
+
+                //一定要用主键where条件，防止锁表。同时必须是支持MySQL的InnoDB。
+                Integer stock = productMapper.selectStockByProductId(orderItem.getProductId());
+
+                //考虑到已生成的订单里的商品被删除的情况
+                if(stock == null){
+                    continue;
+                }
+                Product product = new Product();
+                product.setId(orderItem.getProductId());
+                product.setStock(stock+orderItem.getQuantity());
+                productMapper.updateByPrimaryKeySelective(product);
+            }
+            closeOrderByOrderId(order.getId());
+            logger.info("关闭订单OrderNo：{}",order.getOrderNo());
+        }
+    }
+
+    private void closeOrderByOrderId(Long id){
+        Order order = new Order();
+        order.setId(id);
+        order.setStatus(OrderConst.OrderStatusEnum.ORDER_CLOSE);
+        orderService.updateByPrimaryKeySelective(order);
     }
 
     // 简单打印应答

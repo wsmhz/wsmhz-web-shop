@@ -26,9 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * create by tangbj on 2018/5/27
@@ -168,6 +166,29 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
             return ServerResponse.createBySuccess();
         }
         return ServerResponse.createByError();
+    }
+
+    @Override
+    public List<Order> selectByOrderStatusAndCreateDate(OrderConst.OrderStatusEnum status, Date createDate) {
+        Example example = new Example(Order.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("status",status);
+        criteria.andLessThanOrEqualTo("createDate",createDate);
+        return orderMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<Map<String, String>> selectMonthOrders(Integer month) {
+        List<Map<String, String>> List = orderMapper.selectMonthOrders(month);
+        for (Map<String, String> map : List) {
+            Map<String, String> targetMap = new HashMap<>();
+            Map.Entry<String,String> entry = map.entrySet().iterator().next(); //第一个元素,枚举替换
+            OrderConst.OrderStatusEnum status = OrderConst.OrderStatusEnum.getItem(entry.getValue());
+            if(status != null){
+                map.put(entry.getKey(),status.getValue());
+            }
+        }
+        return List;
     }
 
     private PageInfo<Order> getOrderListByUserId(Integer pageNum, Integer pageSize, Long userId, Long orderNo,OrderConst.OrderStatusEnum status) {

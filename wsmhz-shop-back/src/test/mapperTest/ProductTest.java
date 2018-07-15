@@ -1,4 +1,4 @@
-package mapper;
+package mapperTest;
 
 import com.github.pagehelper.PageInfo;
 import com.wsmhz.web.shop.back.RBACMain;
@@ -56,5 +56,7 @@ public class ProductTest {
         PageInfo<Product> pageInfo = productService.selectPageListByNameAndCategoryId(1,10,null,Long.valueOf(1001),ProductConst.StatusEnum.ON_SALE,null);
         System.out.println(pageInfo.getList());
     }
+
+
 
 }

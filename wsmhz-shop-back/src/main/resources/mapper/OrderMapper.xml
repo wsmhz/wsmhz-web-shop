@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wsmhz.web.shop.common.dao.OrderMapper" >
+
+    <select id="selectMonthOrders" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+      SELECT
+      COUNT(status) as value,status as name
+      FROM shop_order
+      WHERE update_date >= DATE_SUB(NOW(),INTERVAL #{month} MONTH) GROUP BY status;
+    </select>
+</mapper>
