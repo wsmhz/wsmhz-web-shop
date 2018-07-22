@@ -104,7 +104,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         if(order.getStatus().getCode() >= OrderConst.OrderStatusEnum.PAID.getCode()){
             return ServerResponse.createBySuccess(order.getStatus().getCode());
         }
-        return ServerResponse.createByError();
+        return ServerResponse.createBySuccess();
     }
 
     @Override
