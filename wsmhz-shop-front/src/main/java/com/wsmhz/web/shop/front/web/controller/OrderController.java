@@ -24,7 +24,7 @@ import java.util.Map;
  * create by tangbj on 2018/5/27
  */
 @RestController
-@RequestMapping("order")
+@RequestMapping("/api/order")
 public class OrderController {
 
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);

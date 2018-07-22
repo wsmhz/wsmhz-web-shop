@@ -14,7 +14,7 @@ import java.util.List;
  * create by tangbj on 2018/5/27
  */
 @RestController
-@RequestMapping("shipping")
+@RequestMapping("/api/shipping")
 public class ShippingController {
     
     @Autowired

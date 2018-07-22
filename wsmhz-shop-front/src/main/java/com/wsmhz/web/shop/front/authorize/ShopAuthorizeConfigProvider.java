@@ -16,7 +16,7 @@ public class ShopAuthorizeConfigProvider implements AuthorizeConfigProvider {
     @Override
     public boolean config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
         config
-                .antMatchers("/product/**","/api/category/**","user/register","/**/aliPayCallback")
+                .antMatchers("/api/product/**","/api/category/**","/api/user/register","/api/**/aliPayCallback")
                     .permitAll().anyRequest().authenticated();
         return true;
     }

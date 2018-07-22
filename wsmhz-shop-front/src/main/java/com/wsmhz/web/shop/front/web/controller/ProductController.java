@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * create by tangbj on 2018/5/19
  */
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 public class ProductController {
 
     @Autowired
