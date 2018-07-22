@@ -46,6 +46,7 @@ public class CartServiceImpl extends BaseServiceImpl<Cart> implements CartServic
     public Cart selectByUserIdAndProductId(Long userId, Long productId) {
         Example example = new Example(Cart.class);
         Example.Criteria criteria = example.createCriteria();
+        example.setOrderByClause("update_date desc");
         criteria.andEqualTo("userId",userId);
         criteria.andEqualTo("productId",productId);
         Cart cart = cartMapper.selectOneByExample(example);

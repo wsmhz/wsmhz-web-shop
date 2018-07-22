@@ -23,6 +23,7 @@ public class ShippingServiceImpl extends BaseServiceImpl<Shipping> implements Sh
     public List<Shipping> selectAllByUserId(Long userId) {
         Example example = new Example(Shipping.class);
         Example.Criteria criteria = example.createCriteria();
+        example.setOrderByClause("update_date desc");
         criteria.andEqualTo("userId",userId);
         return shippingMapper.selectByExample(example);
     }

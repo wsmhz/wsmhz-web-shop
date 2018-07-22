@@ -194,6 +194,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     private PageInfo<Order> getOrderListByUserId(Integer pageNum, Integer pageSize, Long userId, Long orderNo,OrderConst.OrderStatusEnum status) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(Order.class);
+        example.setOrderByClause("update_date desc");
         Example.Criteria criteria = example.createCriteria();
         if(userId != null){
             criteria.andEqualTo("userId",userId);
