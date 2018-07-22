@@ -1,10 +1,5 @@
 package com.wsmhz.web.shop.common.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
-
 import com.wsmhz.web.shop.common.properties.BusinessProperties;
 import org.apache.commons.net.ftp.FTPClient;
 import org.slf4j.Logger;
@@ -13,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * create by tangbj on 2018/5/20
@@ -78,7 +77,7 @@ public class FTPUtil {
 	
 	
 	private boolean uploadFile(String remotePath,List<File> fileList) throws IOException{
-		boolean uploaded=true;
+		boolean uploaded=false;
 		FileInputStream fis=null;
 		if(connectServer(this.ip,this.port,this.user,this.pwd)){
 			try {

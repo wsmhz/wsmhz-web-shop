@@ -93,13 +93,9 @@ public class OrderController {
 
 
     @GetMapping("/status/{orderNo}")
-    public ServerResponse<Boolean> queryOrderPayStatus(@PathVariable("orderNo") Long orderNo,Authentication authentication){
+    public ServerResponse queryOrderPayStatus(@PathVariable("orderNo") Long orderNo,Authentication authentication){
         User user = (User) authentication.getPrincipal();
-        ServerResponse serverResponse = orderService.queryOrderPayStatus(user.getId(),orderNo);
-        if(serverResponse.isSuccess()){
-            return ServerResponse.createBySuccess(true);
-        }
-        return ServerResponse.createBySuccess(false);
+        return orderService.queryOrderPayStatus(user.getId(),orderNo);
     }
 
     @PutMapping
