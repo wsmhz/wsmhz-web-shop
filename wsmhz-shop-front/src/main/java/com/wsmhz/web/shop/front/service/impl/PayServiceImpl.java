@@ -211,6 +211,7 @@ public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService
             orderService.updateByPrimaryKeySelective(order);
         }
 
+        // 支付平台支付信息持久化
         PayInfo payInfo = new PayInfo();
         payInfo.setUserId(order.getUserId());
         payInfo.setOrderNo(order.getOrderNo());
@@ -218,7 +219,7 @@ public class PayServiceImpl extends BaseServiceImpl<Order> implements PayService
         payInfo.setPlatformNumber(tradeNo);
         payInfo.setPlatformStatus(tradeStatus);
 
-        payInfoMapper.insert(payInfo);
+        payInfoMapper.insertSelective(payInfo);
         return ServerResponse.createBySuccess();
     }
 
