@@ -83,10 +83,10 @@ public interface OrderService extends BaseService<Order>{
 
     /**
      * 订单发货
-     * @param orderNo
+     * @param id
      * @return
      */
-    ServerResponse shipment(Long orderNo);
+    ServerResponse shipment(Long id);
 
     /**
      * 根据订单状态和创建时间查询

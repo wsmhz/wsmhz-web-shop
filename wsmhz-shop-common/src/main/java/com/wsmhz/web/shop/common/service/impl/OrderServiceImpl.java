@@ -164,8 +164,8 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     }
 
     @Override
-    public ServerResponse shipment(Long orderNo) {
-        Order order  = selectByPrimaryKey(orderNo);
+    public ServerResponse shipment(Long id) {
+        Order order  = selectByPrimaryKey(id);
         if(order == null){
             return ServerResponse.createByErrorMessage("此订单不存在");
         }
@@ -178,7 +178,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         updateOrder.setSendTime(new Date());
         int row = orderMapper.updateByPrimaryKeySelective(updateOrder);
         if(row > 0){
-            return ServerResponse.createBySuccess();
+            return ServerResponse.createBySuccessMessage("发货成功");
         }
         return ServerResponse.createByError();
     }
