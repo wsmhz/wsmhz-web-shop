@@ -29,6 +29,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         String msg = "非法参数或请求方式不匹配";
         logger.error(msg);
+        logger.error(ex.getMessage(),ex);
         return new ResponseEntity<Object>(ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),msg),HttpStatus.NOT_EXTENDED);
 
     }

@@ -131,4 +131,8 @@ public class OrderConst {
     public interface  redis_lock{
         String CLOSE_ORDER_TASK_LOCK = "CLOSE_ORDER_TASK_LOCK";
     }
+
+    public interface  redisMessage{
+        String CREATE_ORDER_MESSAGE_ = "CREATE_ORDER_MESSAGE_";
+    }
 }

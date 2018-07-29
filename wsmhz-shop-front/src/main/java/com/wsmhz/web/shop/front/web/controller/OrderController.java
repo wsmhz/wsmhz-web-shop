@@ -9,6 +9,8 @@ import com.wsmhz.web.shop.common.domain.Order;
 import com.wsmhz.web.shop.common.domain.User;
 import com.wsmhz.web.shop.common.enums.OrderConst;
 import com.wsmhz.web.shop.common.service.OrderService;
+import com.wsmhz.web.shop.front.dto.OrderMessage;
+import com.wsmhz.web.shop.front.mq.MQSender;
 import com.wsmhz.web.shop.front.service.PayService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -33,6 +36,8 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private PayService payService;
+    @Autowired
+    private MQSender mqSender;
 
     @GetMapping("/page")
     public ServerResponse selectAll(@RequestParam(value = "pageNum")Integer pageNum,
@@ -44,9 +49,22 @@ public class OrderController {
         return  orderService.selectOrderListByUserId(pageNum,pageSize,user.getId(),orderNo,status);
     }
 
+    @GetMapping("/{id}")
+    public ServerResponse select(@PathVariable("id")Long id){
+        return  orderService.selectOrderDetail(null,id);
+    }
+
     @PostMapping
     public ServerResponse insert(@RequestBody Order order){
-        return orderService.createOrder(order.getUserId(),order.getShippingId());
+        StringBuilder create_order_message_key = new StringBuilder(OrderConst.redisMessage.CREATE_ORDER_MESSAGE_);
+        create_order_message_key.append(order.getUserId()).append(new Date().getTime());
+        mqSender.createOrder(new OrderMessage(order.getUserId(),order.getShippingId(),create_order_message_key.toString()));
+        return ServerResponse.createBySuccess(create_order_message_key.toString());
+    }
+
+    @GetMapping("/queue/{queryKey}")
+    public ServerResponse queryCreateOrder(@PathVariable("queryKey") String queryKey){
+        return orderService.queryCreateOrder(queryKey);
     }
 
     @PostMapping("/pay")
@@ -61,8 +79,8 @@ public class OrderController {
         Map<String,String> params = Maps.newHashMap();
 
         Map requestParams = request.getParameterMap();
-        for(Iterator iter = requestParams.keySet().iterator(); iter.hasNext();){
-            String name = (String)iter.next();
+        for(Iterator iterator = requestParams.keySet().iterator(); iterator.hasNext();){
+            String name = (String)iterator.next();
             String[] values = (String[]) requestParams.get(name);
             String valueStr = "";
             for(int i = 0 ; i <values.length;i++){
@@ -83,7 +101,7 @@ public class OrderController {
         } catch (AlipayApiException e) {
             logger.error("支付宝验证回调异常",e);
         }
-        //todo 验证各种数据
+        //验证各种数据
         ServerResponse serverResponse = payService.aliPayCallback(params);
         if(serverResponse.isSuccess()){
             return OrderConst.AlipayCallback.RESPONSE_SUCCESS;

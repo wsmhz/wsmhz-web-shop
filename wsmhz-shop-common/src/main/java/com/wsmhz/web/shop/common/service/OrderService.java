@@ -37,7 +37,14 @@ public interface OrderService extends BaseService<Order>{
      * @param shippingId
      * @return
      */
-    ServerResponse createOrder(Long userId, Long shippingId);
+    ServerResponse createOrder(Long userId, Long shippingId,String messageKey);
+
+    /**
+     * 查询创建订单是否成功
+     * @param queryKey 查询的 key
+     * @return
+     */
+    ServerResponse queryCreateOrder(String queryKey);
 
     /**
      * 查询该订单是否已支付

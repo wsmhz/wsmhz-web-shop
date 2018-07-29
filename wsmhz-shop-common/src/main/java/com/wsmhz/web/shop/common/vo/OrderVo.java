@@ -2,6 +2,9 @@ package com.wsmhz.web.shop.common.vo;
 
 import com.wsmhz.web.shop.common.dto.OrderItemDto;
 import com.wsmhz.web.shop.common.dto.ShippingDto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,136 +13,66 @@ import java.util.List;
 /**
  * create by tangbj on 2018/5/27
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderVo {
 
     private Long id;
 
     private Long orderNo;
-
+    /**
+     * 支付金额
+     */
     private BigDecimal payment;
-
+    /**
+     * 支付方式描述
+     */
     private String paymentTypeDesc;
-
+    /**
+     * 邮费
+     */
     private Integer postage;
-
+    /**
+     * 订单状态
+     */
+    private String status;
+    /**
+     * 订单状态码
+     */
+    private Integer statusCode;
+    /**
+     * 订单状态描述
+     */
     private String statusDesc;
-
+    /**
+     * 支付时间
+     */
     private Date paymentTime;
-
+    /**
+     * 发货时间
+     */
     private Date sendTime;
-
+    /**
+     * 交易完成时间
+     */
     private Date endTime;
-
+    /**
+     * 交易关闭时间
+     */
     private Date closeTime;
-
+    /**
+     * 订单创建时间
+     */
     private Date createTime;
-
-    //订单的明细
+    /**
+     * 订单的明细
+     */
     private List<OrderItemDto> orderItemList;
-
+    /**
+     * 收货信息
+     */
     private ShippingDto shipping;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(Long orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public BigDecimal getPayment() {
-        return payment;
-    }
-
-    public void setPayment(BigDecimal payment) {
-        this.payment = payment;
-    }
-
-    public String getPaymentTypeDesc() {
-        return paymentTypeDesc;
-    }
-
-    public void setPaymentTypeDesc(String paymentTypeDesc) {
-        this.paymentTypeDesc = paymentTypeDesc;
-    }
-
-    public Integer getPostage() {
-        return postage;
-    }
-
-    public void setPostage(Integer postage) {
-        this.postage = postage;
-    }
-
-    public String getStatusDesc() {
-        return statusDesc;
-    }
-
-    public void setStatusDesc(String statusDesc) {
-        this.statusDesc = statusDesc;
-    }
-
-    public Date getPaymentTime() {
-        return paymentTime;
-    }
-
-    public void setPaymentTime(Date paymentTime) {
-        this.paymentTime = paymentTime;
-    }
-
-    public Date getSendTime() {
-        return sendTime;
-    }
-
-    public void setSendTime(Date sendTime) {
-        this.sendTime = sendTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public Date getCloseTime() {
-        return closeTime;
-    }
-
-    public void setCloseTime(Date closeTime) {
-        this.closeTime = closeTime;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public List<OrderItemDto> getOrderItemList() {
-        return orderItemList;
-    }
-
-    public void setOrderItemList(List<OrderItemDto> orderItemList) {
-        this.orderItemList = orderItemList;
-    }
-
-    public ShippingDto getShipping() {
-        return shipping;
-    }
-
-    public void setShipping(ShippingDto shipping) {
-        this.shipping = shipping;
-    }
 }

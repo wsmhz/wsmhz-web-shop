@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.wsmhz.security.core.common.ServerResponse;
 import com.wsmhz.security.core.service.BaseServiceImpl;
+import com.wsmhz.security.core.utils.JsonUtil;
 import com.wsmhz.web.shop.common.dao.OrderItemMapper;
 import com.wsmhz.web.shop.common.dao.OrderMapper;
 import com.wsmhz.web.shop.common.dao.ProductMapper;
@@ -19,8 +20,10 @@ import com.wsmhz.web.shop.common.service.ShippingService;
 import com.wsmhz.web.shop.common.utils.BigDecimalUtil;
 import com.wsmhz.web.shop.common.vo.OrderVo;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -44,6 +47,8 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     private CartService cartService;
     @Autowired
     private ShippingService shippingService;
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     @Override
     public Order selectByUserIdAndOrderNo(Long userId, Long orderNo) {
@@ -69,7 +74,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
     @Transactional
     @Override
-    public ServerResponse createOrder(Long userId, Long shippingId) {
+    public ServerResponse createOrder(Long userId, Long shippingId,String messageKey) {
         //从购物车中获取数据
         List<Cart> cartList = cartService.selectByUserId(userId,true);
         //计算这个订单的总价
@@ -80,7 +85,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         List<OrderItem> orderItemList = (List<OrderItem>)serverResponse.getData();
         BigDecimal payment = this.getOrderTotalPrice(orderItemList);
         //生成订单
-        Order order = this.assembleOrder(userId,shippingId,payment);
+        Order order = this.assembleOrder(userId,shippingId,payment,messageKey);
         if(order == null){
             return ServerResponse.createByErrorMessage("生成订单错误");
         }
@@ -93,6 +98,16 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         //清空购物车
         this.cleanCart(cartList);
         return ServerResponse.createBySuccess(order.getOrderNo());
+    }
+
+    @Override
+    public ServerResponse queryCreateOrder(String queryKey) {
+        String value = redisTemplate.opsForValue().get(queryKey);
+        if(StringUtils.isNotBlank(value)){
+            Order order = JsonUtil.stringToObj(value,Order.class);
+            return ServerResponse.createBySuccess("创建订单成功",order.getOrderNo());
+        }
+        return ServerResponse.createBySuccess();
     }
 
     @Override
@@ -228,6 +243,8 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
         orderVo.setPostage(order.getPostage());
         orderVo.setStatusDesc(order.getStatus().getValue());
+        orderVo.setStatus(order.getStatus().name());
+        orderVo.setStatusCode(order.getStatus().getCode());
 
         Shipping shipping = shippingService.selectByPrimaryKey(order.getShippingId());
         if(shipping != null){
@@ -314,7 +331,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         return payment;
     }
 
-    private Order assembleOrder(Long userId,Long shippingId,BigDecimal payment){
+    private Order assembleOrder(Long userId,Long shippingId,BigDecimal payment,String messageKey){
         Order order = new Order();
         long orderNo = this.generateOrderNo();
         order.setOrderNo(orderNo);
@@ -327,6 +344,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         order.setShippingId(shippingId);
         int rowCount = orderMapper.insertSelective(order);
         if(rowCount > 0){
+            redisTemplate.boundValueOps(messageKey).set(JsonUtil.objToString(order));
             return order;
         }
         return null;

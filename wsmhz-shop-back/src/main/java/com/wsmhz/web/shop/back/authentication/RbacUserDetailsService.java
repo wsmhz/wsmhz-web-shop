@@ -33,6 +33,9 @@ public class RbacUserDetailsService implements UserDetailsService ,SocialUserDet
 
         logger.info("RBAC登录用户名:" + username);
         Admin admin = adminService.selectByUsername(username);
+        if(admin == null){
+            throw new UsernameNotFoundException("用户不存在");
+        }
         Set<Resource> resources = adminService.selectAllResourceByAdmin(new Admin(admin.getId()), null);
         admin.setResources(Lists.newArrayList(resources));
         return admin;
