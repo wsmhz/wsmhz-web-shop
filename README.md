@@ -36,7 +36,7 @@
 
 4.wsmhz-shop-common 模块为该项目的业务逻辑支撑
 
-5.wsmhz-shop-front 模块为shop前台服务端部分，对应的[前端项目链接](https://gitee.com/wsmhz/wsmhz-front-shop)  网站网址[www.wsmhz.cn](http://www.wsmhz.cn)
+5.wsmhz-shop-front 模块为shop前台服务端部分，对应的前端项目链接[wsmhz-front-shop](https://gitee.com/wsmhz/wsmhz-front-shop)  网站网址[www.wsmhz.cn](http://www.wsmhz.cn)
 
        5.1.完整的电商购物流程
 
@@ -50,4 +50,4 @@
 
         6.2.使用RabbitMQ,解决在高并发下的订单下单请求
 
-        6.3.使用线上Nginx和ftp实现图片等资源的请求代理服务
+        6.3.使用线上Nginx和FTP实现图片等资源的请求代理服务
