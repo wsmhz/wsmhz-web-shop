@@ -13,7 +13,7 @@ import javax.persistence.Table;
 /**
  * create by tangbj on 2018/5/30
  */
-@Table(name = "payInfo")
+@Table(name = "pay_info")
 public class PayInfo extends Domain{
 
     @Id
