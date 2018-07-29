@@ -24,7 +24,7 @@
 
 2.项目框架springBoot，springSecurity，Mybatis，Mysql
 
-3.wsmhz-shop-back 模块为管理后台部分  网站网址[admin.wsmhz.cn](http://admin.wsmhz.cn)
+3.wsmhz-shop-back 模块为管理后台服务端部分，对应的前端项目链接[wsmhz-back-shop](https://gitee.com/wsmhz/wsmhz-back-shop)  网站网址[admin.wsmhz.cn](http://admin.wsmhz.cn)
 
         3.1.基础服务为完整的RBAC模型支撑
 
@@ -36,7 +36,7 @@
 
 4.wsmhz-shop-common 模块为该项目的业务逻辑支撑
 
-5.wsmhz-shop-front 模块为shop前台部分  网站网址[www.wsmhz.cn](http://www.wsmhz.cn)
+5.wsmhz-shop-front 模块为shop前台服务端部分，对应的[前端项目链接](https://gitee.com/wsmhz/wsmhz-front-shop)  网站网址[www.wsmhz.cn](http://www.wsmhz.cn)
 
        5.1.完整的电商购物流程
 
