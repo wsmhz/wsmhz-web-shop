@@ -1,6 +1,9 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.security.core.domain.common.Domain;
+
+import com.wsmhz.security.data.Domain;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +13,8 @@ import javax.persistence.Table;
 /**
  * create by tangbj on 2018/5/18
  */
+@Setter
+@Getter
 @Table(name = "cart")
 public class Cart extends Domain {
     /**
@@ -35,43 +40,4 @@ public class Cart extends Domain {
      */
     private Boolean checked;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Boolean getChecked() {
-        return checked;
-    }
-
-    public void setChecked(Boolean checked) {
-        this.checked = checked;
-    }
 }

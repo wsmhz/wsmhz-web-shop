@@ -1,6 +1,8 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.security.core.domain.common.Domain;
+import com.wsmhz.security.data.Domain;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +14,8 @@ import java.math.BigDecimal;
  * create by tangbj on 2018/5/27
  * 订单的明细
  */
+@Setter
+@Getter
 @Table(name = "order_item")
 public class OrderItem extends Domain {
 
@@ -49,75 +53,4 @@ public class OrderItem extends Domain {
      */
     private BigDecimal totalPrice;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(Long orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductImage() {
-        return productImage;
-    }
-
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
-    }
-
-    public BigDecimal getCurrentUnitPrice() {
-        return currentUnitPrice;
-    }
-
-    public void setCurrentUnitPrice(BigDecimal currentUnitPrice) {
-        this.currentUnitPrice = currentUnitPrice;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 }

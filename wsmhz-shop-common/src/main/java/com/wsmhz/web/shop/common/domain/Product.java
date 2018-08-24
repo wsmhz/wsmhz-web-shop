@@ -1,7 +1,9 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.security.core.domain.common.Domain;
+import com.wsmhz.security.data.Domain;
 import com.wsmhz.web.shop.common.enums.ProductConst;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.ibatis.type.JdbcType;
 import tk.mybatis.mapper.annotation.ColumnType;
 
@@ -13,6 +15,8 @@ import java.math.BigDecimal;
 /**
  * create by tangbj on 2018/5/18
  */
+@Setter
+@Getter
 @Table(name = "product")
 public class Product extends Domain {
     /**
@@ -64,91 +68,4 @@ public class Product extends Domain {
     @ColumnType(jdbcType = JdbcType.VARCHAR)
     private ProductConst.FlagEnum flag;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
-
-    public String getMainImage() {
-        return mainImage;
-    }
-
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
-    }
-
-    public String getSubImages() {
-        return subImages;
-    }
-
-    public void setSubImages(String subImages) {
-        this.subImages = subImages;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public ProductConst.StatusEnum getStatus() {
-        return status;
-    }
-
-    public void setStatus(ProductConst.StatusEnum status) {
-        this.status = status;
-    }
-
-    public ProductConst.FlagEnum getFlag() {
-        return flag;
-    }
-
-    public void setFlag(ProductConst.FlagEnum flag) {
-        this.flag = flag;
-    }
 }

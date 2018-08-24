@@ -1,6 +1,6 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.security.core.domain.common.Domain;
+import com.wsmhz.security.data.Domain;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

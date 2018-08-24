@@ -1,6 +1,8 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.security.core.domain.common.Domain;
+import com.wsmhz.security.data.Domain;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +12,10 @@ import javax.persistence.Table;
 /**
  * create by tangbj on 2018/5/27
  */
+@Setter
+@Getter
 @Table(name = "shipping")
-public class Shipping extends Domain{
+public class Shipping extends Domain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,83 +55,4 @@ public class Shipping extends Domain{
      */
     private String receiverZip;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getReceiverName() {
-        return receiverName;
-    }
-
-    public void setReceiverName(String receiverName) {
-        this.receiverName = receiverName;
-    }
-
-    public String getReceiverPhone() {
-        return receiverPhone;
-    }
-
-    public void setReceiverPhone(String receiverPhone) {
-        this.receiverPhone = receiverPhone;
-    }
-
-    public String getReceiverMobile() {
-        return receiverMobile;
-    }
-
-    public void setReceiverMobile(String receiverMobile) {
-        this.receiverMobile = receiverMobile;
-    }
-
-    public String getReceiverProvince() {
-        return receiverProvince;
-    }
-
-    public void setReceiverProvince(String receiverProvince) {
-        this.receiverProvince = receiverProvince;
-    }
-
-    public String getReceiverCity() {
-        return receiverCity;
-    }
-
-    public void setReceiverCity(String receiverCity) {
-        this.receiverCity = receiverCity;
-    }
-
-    public String getReceiverDistrict() {
-        return receiverDistrict;
-    }
-
-    public void setReceiverDistrict(String receiverDistrict) {
-        this.receiverDistrict = receiverDistrict;
-    }
-
-    public String getReceiverAddress() {
-        return receiverAddress;
-    }
-
-    public void setReceiverAddress(String receiverAddress) {
-        this.receiverAddress = receiverAddress;
-    }
-
-    public String getReceiverZip() {
-        return receiverZip;
-    }
-
-    public void setReceiverZip(String receiverZip) {
-        this.receiverZip = receiverZip;
-    }
 }

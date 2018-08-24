@@ -1,7 +1,9 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.security.core.domain.common.Domain;
+import com.wsmhz.security.data.Domain;
 import com.wsmhz.web.shop.common.enums.OrderConst;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.ibatis.type.JdbcType;
 import tk.mybatis.mapper.annotation.ColumnType;
 
@@ -15,8 +17,10 @@ import java.util.Date;
 /**
  * create by tangbj on 2018/5/27
  */
+@Setter
+@Getter
 @Table(name = "shop_order")
-public class Order extends Domain{
+public class Order extends Domain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,99 +72,4 @@ public class Order extends Domain{
      */
     private Date closeTime;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(Long orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getShippingId() {
-        return shippingId;
-    }
-
-    public void setShippingId(Long shippingId) {
-        this.shippingId = shippingId;
-    }
-
-    public BigDecimal getPayment() {
-        return payment;
-    }
-
-    public void setPayment(BigDecimal payment) {
-        this.payment = payment;
-    }
-
-    public OrderConst.PaymentTypeEnum getPaymentType() {
-        return paymentType;
-    }
-
-    public void setPaymentType(OrderConst.PaymentTypeEnum paymentType) {
-        this.paymentType = paymentType;
-    }
-
-    public Integer getPostage() {
-        return postage;
-    }
-
-    public void setPostage(Integer postage) {
-        this.postage = postage;
-    }
-
-    public OrderConst.OrderStatusEnum getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderConst.OrderStatusEnum status) {
-        this.status = status;
-    }
-
-    public Date getPaymentTime() {
-        return paymentTime;
-    }
-
-    public void setPaymentTime(Date paymentTime) {
-        this.paymentTime = paymentTime;
-    }
-
-    public Date getSendTime() {
-        return sendTime;
-    }
-
-    public void setSendTime(Date sendTime) {
-        this.sendTime = sendTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public Date getCloseTime() {
-        return closeTime;
-    }
-
-    public void setCloseTime(Date closeTime) {
-        this.closeTime = closeTime;
-    }
 }
