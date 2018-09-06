@@ -1,6 +1,5 @@
 package com.wsmhz.web.shop.front.mq;
-
-import com.wsmhz.security.core.utils.JsonUtil;
+import com.wsmhz.common.business.utils.JsonUtil;
 import com.wsmhz.web.shop.common.service.OrderService;
 import com.wsmhz.web.shop.front.dto.OrderMessage;
 import lombok.extern.slf4j.Slf4j;

@@ -3,9 +3,9 @@ package com.wsmhz.web.shop.common.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
-import com.wsmhz.security.core.common.ServerResponse;
-import com.wsmhz.security.core.service.BaseServiceImpl;
-import com.wsmhz.security.core.utils.JsonUtil;
+import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.business.service.BaseServiceImpl;
+import com.wsmhz.common.business.utils.JsonUtil;
 import com.wsmhz.web.shop.common.dao.OrderItemMapper;
 import com.wsmhz.web.shop.common.dao.OrderMapper;
 import com.wsmhz.web.shop.common.dao.ProductMapper;
@@ -74,7 +74,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
     @Transactional
     @Override
-    public ServerResponse createOrder(Long userId, Long shippingId,String messageKey) {
+    public ServerResponse createOrder(Long userId, Long shippingId, String messageKey) {
         //从购物车中获取数据
         List<Cart> cartList = cartService.selectByUserId(userId,true);
         //计算这个订单的总价

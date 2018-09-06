@@ -1,7 +1,7 @@
 package com.wsmhz.web.shop.common.service;
 
 import com.github.pagehelper.PageInfo;
-import com.wsmhz.security.core.service.BaseService;
+import com.wsmhz.common.business.service.BaseService;
 import com.wsmhz.web.shop.common.domain.Category;
 
 import java.util.List;

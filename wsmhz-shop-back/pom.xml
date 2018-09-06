@@ -22,6 +22,16 @@
             <groupId>com.wsmhz</groupId>
             <artifactId>wsmhz.shop.common</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.wsmhz.common</groupId>
+                    <artifactId>common.data</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.wsmhz</groupId>
+                    <artifactId>wsmhz-security-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

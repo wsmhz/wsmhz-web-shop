@@ -1,7 +1,6 @@
 package com.wsmhz.web.shop.common.service;
-
-import com.wsmhz.security.core.common.ServerResponse;
-import com.wsmhz.security.core.service.BaseService;
+import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.business.service.BaseService;
 import com.wsmhz.web.shop.common.domain.Order;
 import com.wsmhz.web.shop.common.domain.OrderItem;
 import com.wsmhz.web.shop.common.enums.OrderConst;
@@ -13,7 +12,7 @@ import java.util.Map;
 /**
  * create by tangbj on 2018/5/27
  */
-public interface OrderService extends BaseService<Order>{
+public interface OrderService extends BaseService<Order> {
 
     /**
      * 通过订单号查询订单
@@ -37,7 +36,7 @@ public interface OrderService extends BaseService<Order>{
      * @param shippingId
      * @return
      */
-    ServerResponse createOrder(Long userId, Long shippingId,String messageKey);
+    ServerResponse createOrder(Long userId, Long shippingId, String messageKey);
 
     /**
      * 查询创建订单是否成功

@@ -1,14 +1,14 @@
 package com.wsmhz.web.shop.common.service;
 
 import com.github.pagehelper.PageInfo;
-import com.wsmhz.security.core.service.BaseService;
+import com.wsmhz.common.business.service.BaseService;
 import com.wsmhz.web.shop.common.domain.Product;
 import com.wsmhz.web.shop.common.enums.ProductConst;
 
 /**
  * create by tangbj on 2018/5/19
  */
-public interface ProductService extends BaseService<Product>{
+public interface ProductService extends BaseService<Product> {
     /**
      * 商品列表 （带搜索）
      * @param pageNum

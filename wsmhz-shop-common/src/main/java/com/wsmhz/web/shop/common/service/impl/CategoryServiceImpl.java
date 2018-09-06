@@ -2,7 +2,7 @@ package com.wsmhz.web.shop.common.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.wsmhz.security.core.service.BaseServiceImpl;
+import com.wsmhz.common.business.service.BaseServiceImpl;
 import com.wsmhz.web.shop.common.dao.CategoryMapper;
 import com.wsmhz.web.shop.common.domain.Category;
 import com.wsmhz.web.shop.common.service.CategoryService;

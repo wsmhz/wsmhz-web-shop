@@ -1,6 +1,5 @@
 package com.wsmhz.web.shop.common.service.impl;
-
-import com.wsmhz.security.core.service.BaseServiceImpl;
+import com.wsmhz.common.business.service.BaseServiceImpl;
 import com.wsmhz.web.shop.common.dao.ShippingMapper;
 import com.wsmhz.web.shop.common.domain.Shipping;
 import com.wsmhz.web.shop.common.service.ShippingService;

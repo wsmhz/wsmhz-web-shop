@@ -1,6 +1,5 @@
 package com.wsmhz.web.shop.common.dao;
-
-import com.wsmhz.security.core.mapper.MyBaseMapper;
+import com.wsmhz.common.business.mapper.MyBaseMapper;
 import com.wsmhz.web.shop.common.domain.OrderItem;
 
 /**
