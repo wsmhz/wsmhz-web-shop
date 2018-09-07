@@ -25,7 +25,7 @@
             <exclusions>
                 <exclusion>
                     <groupId>com.wsmhz.common</groupId>
-                    <artifactId>common.data</artifactId>
+                    <artifactId>common.business</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>com.wsmhz</groupId>

@@ -1,6 +1,6 @@
 package com.wsmhz.web.shop.front.service;
-import com.wsmhz.common.business.response.ServerResponse;
 import com.wsmhz.common.business.service.BaseService;
+import com.wsmhz.common.data.response.ServerResponse;
 import com.wsmhz.web.shop.common.domain.Order;
 
 import java.util.Map;

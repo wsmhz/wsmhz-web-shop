@@ -1,5 +1,5 @@
 package com.wsmhz.web.shop.front.web.controller;
-import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.data.response.ServerResponse;
 import com.wsmhz.web.shop.common.domain.Category;
 import com.wsmhz.web.shop.common.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

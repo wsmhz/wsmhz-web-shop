@@ -2,7 +2,7 @@ package com.wsmhz.web.shop.back.web.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.wsmhz.common.business.dto.MybatisPage;
-import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.data.response.ServerResponse;
 import com.wsmhz.web.shop.common.domain.Product;
 import com.wsmhz.web.shop.common.enums.ProductConst;
 import com.wsmhz.web.shop.common.service.FileService;

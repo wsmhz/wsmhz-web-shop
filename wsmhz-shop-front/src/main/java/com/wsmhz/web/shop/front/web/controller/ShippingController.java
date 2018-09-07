@@ -1,5 +1,5 @@
 package com.wsmhz.web.shop.front.web.controller;
-import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.data.response.ServerResponse;
 import com.wsmhz.web.shop.common.domain.Shipping;
 import com.wsmhz.web.shop.common.domain.User;
 import com.wsmhz.web.shop.common.service.ShippingService;

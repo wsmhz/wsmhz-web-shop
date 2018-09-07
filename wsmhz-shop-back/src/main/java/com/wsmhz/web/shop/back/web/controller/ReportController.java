@@ -1,6 +1,6 @@
 package com.wsmhz.web.shop.back.web.controller;
 
-import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.data.response.ServerResponse;
 import com.wsmhz.web.shop.common.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

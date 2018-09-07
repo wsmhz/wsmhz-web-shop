@@ -4,7 +4,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.demo.trade.config.Configs;
 import com.google.common.collect.Maps;
-import com.wsmhz.common.business.response.ServerResponse;
+import com.wsmhz.common.data.response.ServerResponse;
 import com.wsmhz.web.shop.common.domain.Order;
 import com.wsmhz.web.shop.common.domain.User;
 import com.wsmhz.web.shop.common.enums.OrderConst;
