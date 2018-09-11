@@ -106,6 +106,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         String value = redisTemplate.opsForValue().get(queryKey);
         if(StringUtils.isNotBlank(value)){
             Order order = JsonUtil.stringToObj(value,Order.class);
+            redisTemplate.boundValueOps(queryKey).expire(1,TimeUnit.MINUTES);
             return ServerResponse.createBySuccess("创建订单成功",order.getOrderNo());
         }
         return ServerResponse.createBySuccess();
