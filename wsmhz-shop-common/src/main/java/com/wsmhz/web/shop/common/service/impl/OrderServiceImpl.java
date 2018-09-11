@@ -30,6 +30,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * create by tangbj on 2018/5/27
@@ -344,7 +345,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         order.setShippingId(shippingId);
         int rowCount = orderMapper.insertSelective(order);
         if(rowCount > 0){
-            redisTemplate.boundValueOps(messageKey).set(JsonUtil.objToString(order));
+            redisTemplate.boundValueOps(messageKey).set(JsonUtil.objToString(order),OrderConst.redisMessage.CREATE_ORDER_MESSAGE_TIMEOUT_HOUR, TimeUnit.HOURS);
             return order;
         }
         return null;

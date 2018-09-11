@@ -134,5 +134,6 @@ public class OrderConst {
 
     public interface  redisMessage{
         String CREATE_ORDER_MESSAGE_ = "CREATE_ORDER_MESSAGE_";
+        int CREATE_ORDER_MESSAGE_TIMEOUT_HOUR = 2;
     }
 }
