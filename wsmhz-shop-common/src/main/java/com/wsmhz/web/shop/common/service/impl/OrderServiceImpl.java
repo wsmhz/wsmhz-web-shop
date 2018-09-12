@@ -19,6 +19,7 @@ import com.wsmhz.web.shop.common.service.OrderService;
 import com.wsmhz.web.shop.common.service.ShippingService;
 import com.wsmhz.web.shop.common.utils.BigDecimalUtil;
 import com.wsmhz.web.shop.common.vo.OrderVo;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +37,7 @@ import java.util.concurrent.TimeUnit;
  * create by tangbj on 2018/5/27
  */
 @Service
+@Slf4j
 public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderService{
 
     @Autowired
@@ -88,6 +90,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         //生成订单
         Order order = this.assembleOrder(userId,shippingId,payment,messageKey);
         if(order == null){
+            log.error("生成订单错误");
             return ServerResponse.createByErrorMessage("生成订单错误");
         }
         for(OrderItem orderItem : orderItemList){
@@ -300,6 +303,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     private ServerResponse<List<OrderItem>> getCartOrderItem(Long userId,List<Cart> cartList){
         List<OrderItem> orderItemList = Lists.newArrayList();
         if(CollectionUtils.isEmpty(cartList)){
+            log.error("购物车为空");
             return ServerResponse.createByErrorMessage("购物车为空");
         }
         //校验购物车的数据,包括产品的状态和数量
@@ -307,10 +311,12 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
             OrderItem orderItem = new OrderItem();
             Product product = productMapper.selectByPrimaryKey(cartItem.getProductId());
             if( ! ProductConst.StatusEnum.ON_SALE.equals(product.getStatus())){
+                log.error("产品："+product.getName()+"不是在线售卖状态");
                 return ServerResponse.createByErrorMessage("产品："+product.getName()+"不是在线售卖状态");
             }
             //校验库存
             if(cartItem.getQuantity() > product.getStock()){
+                log.error("产品："+product.getName()+"库存不足");
                 return ServerResponse.createByErrorMessage("产品："+product.getName()+"库存不足");
             }
             orderItem.setUserId(userId);
