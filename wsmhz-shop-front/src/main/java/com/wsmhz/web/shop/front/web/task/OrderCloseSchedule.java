@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -57,7 +56,7 @@ public class OrderCloseSchedule {
     /**
      * 定时关单。使用redis分布式锁，支持集群(使用时间戳超时时间解决强制关闭服务器而发生的死锁问题)
      */
-    @Scheduled(cron = "0 */1 * * * ?")    //每一分钟
+//    @Scheduled(cron = "0 */1 * * * ?")    //每一分钟
     public void closeOrderTaskV3(){
         log.info("==========关闭订单定时任务启动==========");
         long lockTimeout = Long.parseLong(businessProperties.getTask().getOrderCloseLockTimeout());
