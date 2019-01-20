@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
@@ -27,13 +26,11 @@ public class ShopUserDetailsService implements UserDetailsService ,SocialUserDet
 
     @Override
     public UserDetails loadUserByUsername(String username){
-
         logger.info("shop登录用户名:" + username);
         User user = userService.selectByUsername(username);
         return user;
 
     }
-
 
     @Override
     public SocialUserDetails loadUserByUserId(String s) throws UsernameNotFoundException {
