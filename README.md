@@ -20,11 +20,11 @@
 
 
 
-1.依赖如上,另一个自己的项目 [wsmhz-security](https://gitee.com/wsmhz/wsmhz-security)
+1.依赖如上,另一个自己的项目 [wsmhz-security](https://github.com/wsmhz/wsmhz-security)
 
 2.项目框架springBoot，springSecurity，Mybatis，Mysql
 
-3.wsmhz-shop-back 模块为管理后台服务端部分，对应的前端项目链接[wsmhz-back-shop](https://gitee.com/wsmhz/wsmhz-back-shop)  网站网址[admin.wsmhz.cn](http://admin.wsmhz.cn) 测试账号：test  密码：123456
+3.wsmhz-shop-back 模块为管理后台服务端部分，对应的前端项目链接[wsmhz-back-shop](https://github.com/wsmhz/wsmhz-back-shop)  网站网址[admin.wsmhz.cn](http://admin.wsmhz.cn) 测试账号：test  密码：123456
 
         3.1.基础服务为完整的RBAC模型支撑
 
@@ -36,7 +36,7 @@
 
 4.wsmhz-shop-common 模块为该项目的业务逻辑支撑
 
-5.wsmhz-shop-front 模块为shop前台服务端部分，对应的前端项目链接[wsmhz-front-shop](https://gitee.com/wsmhz/wsmhz-front-shop)  网站网址[www.wsmhz.cn](http://www.wsmhz.cn)
+5.wsmhz-shop-front 模块为shop前台服务端部分，对应的前端项目链接[wsmhz-front-shop](https://github.com/wsmhz/wsmhz-front-shop)  网站网址[www.wsmhz.cn](http://www.wsmhz.cn)
 
        5.1.完整的电商购物流程
 
