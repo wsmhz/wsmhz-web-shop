@@ -4,7 +4,7 @@ import com.wsmhz.web.shop.common.enums.OrderConst;
 import com.wsmhz.web.shop.common.properties.BusinessProperties;
 import com.wsmhz.web.shop.front.service.PayService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;

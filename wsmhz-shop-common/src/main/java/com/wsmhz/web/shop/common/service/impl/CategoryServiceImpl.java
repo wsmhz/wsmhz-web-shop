@@ -6,7 +6,7 @@ import com.wsmhz.common.business.service.BaseServiceImpl;
 import com.wsmhz.web.shop.common.dao.CategoryMapper;
 import com.wsmhz.web.shop.common.domain.Category;
 import com.wsmhz.web.shop.common.service.CategoryService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;

@@ -3,33 +3,37 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>wsmhz.web.shop</artifactId>
+        <artifactId>wsmhz-web-shop</artifactId>
         <groupId>com.wsmhz</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wsmhz.shop.common</artifactId>
+    <artifactId>wsmhz-shop-common</artifactId>
+
+    <properties>
+        <wsmhz.security.version>1.0-SNAPSHOT</wsmhz.security.version>
+        <wsmhz.common.version>1.0-SNAPSHOT</wsmhz.common.version>
+    </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.wsmhz</groupId>
             <artifactId>wsmhz-security-browser</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${wsmhz.security.version}</version>
         </dependency>
         <dependency>
             <groupId>com.wsmhz.common</groupId>
-            <artifactId>common.business</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>common-business</artifactId>
+            <version>${wsmhz.common.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.wsmhz.common</groupId>
-                    <artifactId>common.dependency</artifactId>
+                    <artifactId>common-dependency</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>com.wsmhz.common</groupId>
-                    <artifactId>common.data</artifactId>
+                    <artifactId>common-data</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
