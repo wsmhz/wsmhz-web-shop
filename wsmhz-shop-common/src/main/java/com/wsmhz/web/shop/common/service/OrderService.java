@@ -1,6 +1,6 @@
 package com.wsmhz.web.shop.common.service;
 import com.wsmhz.common.business.service.BaseService;
-import com.wsmhz.common.data.response.ServerResponse;
+import com.wsmhz.common.business.response.ServerResponse;
 import com.wsmhz.web.shop.common.domain.Order;
 import com.wsmhz.web.shop.common.domain.OrderItem;
 import com.wsmhz.web.shop.common.enums.OrderConst;

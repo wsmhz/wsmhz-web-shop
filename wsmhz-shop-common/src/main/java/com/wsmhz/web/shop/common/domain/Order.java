@@ -1,6 +1,6 @@
 package com.wsmhz.web.shop.common.domain;
 
-import com.wsmhz.common.data.domain.Domain;
+import com.wsmhz.common.business.domain.Domain;
 import com.wsmhz.web.shop.common.enums.OrderConst;
 import lombok.Getter;
 import lombok.Setter;

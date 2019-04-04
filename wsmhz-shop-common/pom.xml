@@ -26,16 +26,6 @@
             <groupId>com.wsmhz.common</groupId>
             <artifactId>common-business</artifactId>
             <version>${wsmhz.common.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.wsmhz.common</groupId>
-                    <artifactId>common-dependency</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.wsmhz.common</groupId>
-                    <artifactId>common-data</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 

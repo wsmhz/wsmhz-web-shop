@@ -14,7 +14,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.wsmhz.common.business.service.BaseServiceImpl;
 import com.wsmhz.common.business.utils.DateTimeUtil;
-import com.wsmhz.common.data.response.ServerResponse;
+import com.wsmhz.common.business.response.ServerResponse;
 import com.wsmhz.web.shop.common.dao.PayInfoMapper;
 import com.wsmhz.web.shop.common.dao.ProductMapper;
 import com.wsmhz.web.shop.common.domain.Order;

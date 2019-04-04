@@ -1,6 +1,6 @@
 package com.wsmhz.web.shop.common.exception;
-import com.wsmhz.common.data.response.ResponseCode;
-import com.wsmhz.common.data.response.ServerResponse;
+import com.wsmhz.common.business.response.ResponseCode;
+import com.wsmhz.common.business.response.ServerResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
